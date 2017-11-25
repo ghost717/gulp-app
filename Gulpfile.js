@@ -17,8 +17,18 @@ var config = require('./ftp.json');
 //kopiowanie plikow  
 gulp.task('php', function () {
     return gulp.src('./src/*.php')
-        .pipe(gulp.dest('./dist'))
+      //  .pipe(gulp.dest('./dist'))
         .pipe(gulp.dest('./'));
+});
+
+gulp.task('js', function () {
+    return gulp.src('./src/js/*.js')
+        .pipe(gulp.dest('./dist/assets/js'));
+});
+
+gulp.task('owl', function () {
+    return gulp.src('./src/owl/*')
+        .pipe(gulp.dest('./dist/assets/owl'));
 });
 
 //kopiowanie assetow
@@ -31,9 +41,10 @@ gulp.task('assets', function () {
 gulp.task('move-files',function(){
   return gulp.src([
       './src/js/*',
-      './src/bootstrap/*',
+      './src/bootstrap/*/*',
       './src/owl/*',
       './src/wow/*',
+      './src/biloxi_script/*',
   ],  {base: './src/'}) 
   .pipe(gulp.dest('./dist/assets'));
 });
@@ -42,17 +53,18 @@ gulp.task('move-files',function(){
 gulp.task('move-css',function(){
   return gulp.src([
       './src/style.css',
-  ],  {base: './src/'}) 
+  ],  {base: './src/'})
+  .pipe(gulp.dest('./')) 
   .pipe(gulp.dest('./dist'));
 });
 
 //mimifikacja less
 gulp.task('min-less', function () {
   //return gulp.src('./src/less/layout.less')
-  	return gulp.src([
-	    './src/less/layout.less',
-	    './src/css/reset.css',
-	]) 
+    return gulp.src([
+      './src/less/layout.less',
+      './src/css/reset.css',
+  ]) 
     .pipe(less().on('error', function (err) {
       console.log(err);
     }))
@@ -67,6 +79,8 @@ gulp.task('min-less', function () {
 gulp.task('watch', function () {
   gulp.watch('./src/less/*.less', ['min-less']);
   gulp.watch('./src/*.php', ['php']);
+  gulp.watch('./src/js/*.js', ['js']);
+  gulp.watch('./src/owl/*', ['owl']);
 });
 
 

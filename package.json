@@ -15,9 +15,7 @@
     "gulp-util": "^3.0.8",
     "vinyl-ftp": "^0.6.0"
   },
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
