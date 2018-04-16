@@ -9,13 +9,28 @@
  */
 
  
-
-// add the custom thumbnails size
-add_action('after_setup_theme', 'wpdocs_theme_setup');
-function wpdocs_theme_setup()
+//sierotki
+// wywolanie dla ACF
+// echo iworks_orphan(get_sub_field('opis'));
+function iworks_orphan( $content )
 {
-    add_image_size('fullhd', 1920, 1080, true);
+    if ( !class_exists( 'iWorks_Orphan' ) ) {
+        return $content;
+    }
+    $orphan = new iWorks_Orphan();
+    return $orphan->replace( $content );
 }
+
+//remove_filter ('the_content', 'wpautop');
+//add_filter('the_content','my_custom_formatting');
+function my_custom_formatting($content){
+    if(is_page()): 
+        return $content;//usuwa p
+    else:
+        return wpautop($content);
+    endif;
+}
+
 
 /**
 * Outputs the url of ACF image object
@@ -103,16 +118,47 @@ function isOld($days)
     return false;
 }
 
-/**
-* Returns the path to the asset
-* @param string
-*
-* @return string
-*/
-function asset($asset)
+
+//wywolanie
+//kriesi_pagination($custom_query->max_num_pages);
+
+function kriesi_pagination($pages = '', $range = 2)
 {
-    echo get_template_directory_uri() .'/dist/'. $asset;
+     $showitems = ($range * 2)+1;
+
+     global $paged;
+     if(empty($paged)) $paged = 1;
+
+     if($pages == '')
+     {
+         global $wp_query;
+         $pages = $wp_query->max_num_pages;
+         if(!$pages)
+         {
+             $pages = 1;
+         }
+     }
+
+     if(1 != $pages)
+     {
+         echo "<div class='pagination'>";
+         if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
+         if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
+
+         for ($i=1; $i <= $pages; $i++)
+         {
+             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
+             {
+                 echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
+             }
+         }
+
+         if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";
+         if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
+         echo "</div>\n";
+     }
 }
+
 
 function post_type_produkty()
 {
@@ -138,9 +184,24 @@ function post_type_produkty()
     'capability_type' => 'page',
     'taxonomies' => array('category'),
   );
-    register_post_type('produkty', $args);
+    
+  //register_post_type('produkty', $args);
 }
 add_action('init', 'post_type_produkty', 0);
+
+/*
+register_taxonomy(
+    "produkty",
+    array("produkt"),
+    array(
+        "hierarchical" => true,
+        "label" => "Kategorie",
+        "singular_label" => "Kategoria",
+        "rewrite" => true
+        )
+);
+*/
+
 
 // remove the wp version
 remove_action('wp_head', 'wp_generator');
@@ -159,33 +220,38 @@ add_filter('upload_mimes', 'cc_mime_types');
 // add options page
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
-	'page_title' => 'Ogólne',
-	'menu_title' => 'Ogólne',
-	'redirect' => false
-));
+        'page_title' => 'Ogólne',
+        'menu_title' => 'Ogólne',
+        'redirect' => false
+    ));
 }
 
-// if (!function_exists('webs_setup')) :
+// add the custom thumbnails size
+add_action('after_setup_theme', 'wpdocs_theme_setup');
+function wpdocs_theme_setup(){
+    add_image_size('fullhd', 1920, 1080, true);
+}
 
-// function webs_setup()
-// {
-//     add_theme_support('post-thumbnails');
-//     register_nav_menus(array(
-//         'menu-1' => esc_html__('Primary', 'webs'),
-//     ));
+if (!function_exists('webs_setup')) :
+ function webs_setup()
+ {
+     add_theme_support('post-thumbnails');
+     register_nav_menus(array(
+         'primary-menu' => esc_html__('Primary', 'webs'),
+     ));
 
-//     add_theme_support('html5', array(
-//         'search-form',
-//         'comment-form',
-//         'comment-list',
-//         'gallery',
-//         'caption',
-//     ));
+     add_theme_support('html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+     ));
 
-//     add_theme_support('customize-selective-refresh-widgets');
-// }
-// endif;
-// add_action('after_setup_theme', 'webs_setup');
+     add_theme_support('customize-selective-refresh-widgets');
+}
+endif;
+add_action('after_setup_theme', 'webs_setup');
 
 // function webs_widgets_init()
 // {
@@ -201,6 +267,17 @@ if (function_exists('acf_add_options_page')) {
 // }
 // add_action('widgets_init', 'webs_widgets_init');
 
+
+/**
+* Returns the path to the asset
+* @param string
+*
+* @return string
+*/
+function asset($asset)
+{
+    echo get_template_directory_uri() .'/dist/'. $asset;
+}
 
 // inc scripts and styles
 function webs_scripts()
