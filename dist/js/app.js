@@ -1,0 +1,1 @@
+"use strict";jQuery(document).ready(function(t){t(document).on("click",'a[href^="#"]',function(e){e.preventDefault(),t("html, body").animate({scrollTop:t(t.attr(this,"href")).offset().top},500)}),t(".menu__toggle").click(function(e){t(".header").toggleClass("header--toggled")})});
