@@ -1,0 +1,135 @@
+.grid {
+	margin: 0 auto
+}
+
+@media(max-width:768px) {
+	.grid {
+		width: 90%
+	}
+}
+
+@media(min-width:768px) {
+	.grid {
+		width: 750px
+	}
+}
+
+@media(min-width:992px) {
+	.grid {
+		width: 870px
+	}
+}
+
+@media(min-width:1200px) {
+	.grid {
+		width: 1170px
+	}
+}
+
+@media(min-width:1600px) {
+	.grid {
+		width: 1270px
+	}
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	box-sizing: border-box;
+	border: 0
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block
+}
+
+body {
+	line-height: 1
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+blockquote,
+q {
+	quotes: none
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+	content: '';
+	content: none
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+/* Reset `button` and button-style `input` default styles */
+
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+	box-sizing: content-box;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+	background: none;
+	border: 0;
+	color: inherit;
+	/* cursor: default; */
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-appearance: button;
+	/* for input */
+	/* for button */
+	user-select: none;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/* Make `a` like a button */
+
+[role="button"] {
+	color: inherit;
+	cursor: default;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	white-space: pre;
+	user-select: none;
+}

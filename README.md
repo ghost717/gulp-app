@@ -1,10 +1,13 @@
-# gulp-app
+# gulp-sass-app
 
+## Instalacja / komendy
+----
+> npm install
 
-## wersja 1.1
-- modyfikacja gulpfile.js
-- zmiana struktury aplikacji
-- dodanie nowych taskow do sledzenia katalogow owl i js
+## Info / Wersja
+----
+Przebudowana aplikacja gulp-app 2.0
+
 
 
 

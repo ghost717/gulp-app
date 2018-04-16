@@ -1,132 +1,148 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
-var sass = require('gulp-sass');
-var rename = require('gulp-rename');
-var cssmin = require('gulp-cssmin');
-
-var insert = require('gulp-insert');
-var header = require('./header.json');
-var uglify = require("gulp-uglify");
+var cssnano = require('gulp-cssnano');
 var concat = require("gulp-concat");
-var clean = require("gulp-clean");
-var ftp = require('vinyl-ftp');
-var gutil = require('gulp-util');
-var config = require('./ftp.json');
+var uglify = require("gulp-uglify");
+var autoprefixer = require('gulp-autoprefixer');
+var imagemin = require('gulp-imagemin');
+var imageminMozjpeg = require('imagemin-mozjpeg');
+var sass = require("gulp-sass");
+var gutil = require("gulp-util");
+var del = require("del");
+var babel = require('gulp-babel');
 
 
-//kopiowanie plikow  
-gulp.task('php', function () {
-    return gulp.src('./src/*.php')
-      //  .pipe(gulp.dest('./dist'))
-        .pipe(gulp.dest('./'));
+
+var dir = {
+	css: 'src/css/*',
+	csslib: 'src/css/lib/',
+	js: 'src/js/*.js',
+	jslib: 'src/js/lib/',
+	php: '*.php',
+	img: 'src/img/**',
+	build: 'dist/',
+	buildCss: 'dist/css/',
+	buildJs: 'dist/js/',
+	buildImg: 'dist/img/'
+};
+
+
+// import the libraries here
+// merged into dist/js/lib.js
+var jsLib = [
+	dir.jslib + 'jq.js',
+	dir.jslib + 'owl.js',
+	// dir.jslib + 'aio.js',
+	// dir.jslib + 'anime.js',
+	// dir.jslib + 'rellax.js',
+	// dir.jslib + 'tilt.js',
+];
+// merged into dist/css/lib.js
+var cssLib = [
+	dir.csslib + 'grid.css',
+	// dir.csslib + 'aio.css',
+	// dir.csslib + 'owl.css',
+];
+
+
+// merge, compile, minify css files
+gulp.task('css', function () {
+	return gulp.src(dir.css)
+		.pipe(concat('app.css'))
+		.pipe(sass())
+		.on('error', function (err) {
+			gutil.log(err);
+			this.emit('end');
+		})
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+		.pipe(cssnano())
+		.pipe(gulp.dest(dir.buildCss))
 });
 
+
+// merge, compile, minify js files
 gulp.task('js', function () {
-    return gulp.src('./src/js/*.js')
-        .pipe(gulp.dest('./dist/assets/js'));
+	return gulp.src(dir.js)
+		.pipe(concat('app.js'))
+		.pipe(babel({
+			presets: ['env']
+		}))
+		.pipe(uglify().on('error', function (uglify) {
+			console.error(uglify);
+			this.emit('end');
+		}))
+		.pipe(gulp.dest(dir.buildJs));
 });
 
-gulp.task('owl', function () {
-    return gulp.src('./src/owl/*')
-        .pipe(gulp.dest('./dist/assets/owl'));
+// merge all css lib files
+gulp.task('csslib', function () {
+	return gulp.src(cssLib)
+		.pipe(concat('lib.css'))
+		.pipe(sass())
+		.on('error', function (err) {
+			gutil.log(err);
+			this.emit('end');
+		})
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+		.pipe(cssnano())
+		.pipe(gulp.dest(dir.buildCss));
 });
 
-//kopiowanie assetow
-gulp.task('assets', function () {
-    return gulp.src('src/assets/**')
-        .pipe(gulp.dest('./dist/assets/'));
+// merge all js lib files
+gulp.task('jslib', function () {
+	return gulp.src(jsLib)
+		.pipe(concat('lib.js'))
+		// .pipe(babel({
+		//     presets: ['env']
+		// }))
+		// .pipe(uglify().on('error', function (uglify) {
+		// 	console.error(uglify);
+		// 	this.emit('end');
+		// }))
+		.pipe(gulp.dest(dir.buildJs));
 });
 
-//move files
-gulp.task('move-files',function(){
-  return gulp.src([
-      './src/js/*',
-      './src/bootstrap/*/*',
-      './src/owl/*',
-      './src/wow/*',
-      './src/biloxi_script/*',
-  ],  {base: './src/'}) 
-  .pipe(gulp.dest('./dist/assets'));
+// merge, compile, minify js files
+gulp.task('images', function () {
+	gulp.src(dir.img)
+		.pipe(imagemin([
+			imageminMozjpeg({
+				quality: 50
+			}),
+			imagemin.optipng({
+				optimizationLevel: 5
+			}),
+			imagemin.svgo({
+				plugins: [{
+						removeViewBox: true
+					},
+					{
+						cleanupIDs: false
+					}
+				]
+			})
+		]))
+		.pipe(gulp.dest(dir.buildImg));
 });
 
-//move css
-gulp.task('move-css',function(){
-  return gulp.src([
-      './src/style.css',
-  ],  {base: './src/'})
-  .pipe(gulp.dest('./')) 
-  .pipe(gulp.dest('./dist'));
+// clear dist dir
+gulp.task("clean", function () {
+	return del([dir.buildCss + '*.css', dir.buildJs + '*.js', dir.buildImg + '*']);
 });
 
-//mimifikacja less
-gulp.task('min-less', function () {
-  //return gulp.src('./src/less/layout.less')
-    return gulp.src([
-      './src/less/layout.less',
-      './src/css/reset.css',
-  ]) 
-    .pipe(less().on('error', function (err) {
-      console.log(err);
-    }))
-    .pipe(cssmin().on('error', function(err) {
-      console.log(err);
-    }))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('./dist/assets/css'));
+// run all tasks
+gulp.task('build', function () {
+	gulp.start('css', 'js', 'csslib', 'jslib', 'images');
 });
 
-
-gulp.task('watch', function () {
-  gulp.watch('./src/less/*.less', ['min-less']);
-  gulp.watch('./src/*.php', ['php']);
-  gulp.watch('./src/js/*.js', ['js']);
-  gulp.watch('./src/owl/*', ['owl']);
+// watch for changes and run tasks
+gulp.task('default', function () {
+	gulp.watch(dir.img, ['images']);
+	gulp.watch(dir.css, ['css']);
+	gulp.watch(dir.js, ['js']);
 });
-
-
-//czyszczenie
-gulp.task('clean', function () {
-    return gulp.src('./dist', {force: true})
-        .pipe(clean());
-});
-
-//mimifikacja js
-gulp.task('min-js', function () {
-    return gulp.src('./dist/assets/js/*')
-        .pipe(concat('scripts.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('./dist/assets/js'));
-});
-
-//publikacja ftp /wywolanie gulp deploy
-gulp.task('deploy', ['build'], function () {
-    var conn = ftp.create({
-        host: config.host,
-        user: config.user,
-        password: config.password,
-        parallel: 10,
-        log: gutil.log
-    });
- 
-    return gulp.src("./dist/**", {
-            base: './dist',
-            buffer: false
-    })
-    .pipe(conn.newer(config.path))
-    .pipe(conn.dest(config.path));
-});
-
-gulp.task('default', ['min-less', 'watch']);
-
-//build
-gulp.task('build', [
-    'clean',
-    'php',
-    'assets',
-    'min-less',
-    'move-css',
-    'move-files',
-//    'min-js',
-//    'less',
-]);
- 
