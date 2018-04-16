@@ -1,5 +1,71 @@
 <?php
 
+/**
+ * Filter the excerpt "read more" string.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function wpdocs_excerpt_more( $more ) {
+    return '...';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+*/
+
+function wpdocs_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+/**
+ * enqueue scripts and styles 
+ * GOOGLE MAP APIS
+*/
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyDUNBtyAPVbinBn_P2OdztPEuESrMsmnZY');
+}
+
+add_action('acf/init', 'my_acf_init');
+
+function nr_load_scripts() {
+	//https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false
+	wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDUNBtyAPVbinBn_P2OdztPEuESrMsmnZY',null,null,true);  
+	wp_enqueue_script('googlemaps');
+		
+}
+add_action( 'wp_enqueue_scripts', 'nr_load_scripts' );
+
+
+
+/*
+DELETE FROM `wp_options` WHERE `option_name` LIKE ('_transient_%');
+DELETE FROM `wp_options` WHERE `option_name` LIKE ('_site_transient_%');
+*/
+//sierotki
+// wywolanie dla ACF
+// echo iworks_orphan(get_sub_field('opis'));
+function iworks_orphan( $content )
+{
+    if ( !class_exists( 'iWorks_Orphan' ) ) {
+        return $content;
+    }
+    $orphan = new iWorks_Orphan();
+    return $orphan->replace( $content );
+}
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();
+}
+
 //umożliwia dodawanie html do opisów category
 remove_filter('pre_term_description', 'wp_filter_kses');
 
@@ -57,14 +123,16 @@ register_sidebar(array(
 
 add_theme_support( 'post-thumbnails');
 
-//set_post_thumbnail_size( 587, 400, true );
+//set_post_thumbnail_size( 560, 450, true );
 
 if ( function_exists( 'add_image_size' ) ) {
 	add_theme_support( 'post-thumbnails' );
 }
 
 if ( function_exists( 'add_image_size' ) ) {
-//    add_image_size( 'big-thumb', 579, 386, true );
+    add_image_size( 'fullHD', 1920, 1080, true );
+    add_image_size( 'avatar', 120, 150, true );
+    add_image_size( 'thumb', 560, 450, true );
 }
 
 // --------------------------------------------------------
@@ -256,6 +324,52 @@ register_taxonomy(
         )
 );
 */
+add_action('init', 'offer_register');
+
+function offer_register() {
+
+    $labels = array(
+        'name' => _x('Oferta', 'post type general name'),
+        'singular_name' => _x('Oferta', 'post type singular name'),
+        'add_new' => _x('Dodaj', 'news item'),
+        'add_new_item' => __('Dodaj nowy'),
+        'edit_item' => __('Edytuj news'),
+        'new_item' => __('Nowy news'),
+        'view_item' => __('Zobacz news'),
+        'search_items' => __('Szukaj'),
+        'not_found' =>  __('Nie znaleziono'),
+        'not_found_in_trash' => __('Nothing found in Trash'),
+        'parent_item_colon' => ''
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+    //    'menu_icon' => get_stylesheet_directory_uri() . '/article16.png',
+        'menu_icon' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+    //    'hierarchical' => false,
+        'menu_position' => null,
+        'supports' => array('title','editor','thumbnail')
+      );
+
+    register_post_type( 'offer' , $args );
+}
+
+register_taxonomy(
+    "coffer",
+    array("offer"),
+    array(
+        "hierarchical" => true,
+        "label" => "Kategorie",
+        "singular_label" => "Kategoria",
+        "rewrite" => true
+        )
+);
 
 //wywolanie
 //kriesi_pagination($custom_query->max_num_pages);
