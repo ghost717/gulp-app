@@ -376,3 +376,112 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
     }
     return $urls;
 }
+
+
+
+
+class jwba_social_widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+            'jwba_social_widget', 'Social Icon',
+            array('description' => 'Widget wyświetlający linki do popularnych portali społecznościowych.')
+        );
+    }
+
+    //odpowiedzialna za samo wyświetlanie widgetu, w tablicy $args otrzymujemy ustawienia motywu odnośnie znaczników HTML-a używanych do budowania sidebaru
+    public function widget($args, $instance) {
+
+
+        $fb = $instance['facebook'];
+        $tweet = $instance['twitter'];
+        $google = $instance['google'];
+        $inst = $instance['instagram'];
+        $pinterest = $instance['pinterest'];
+        $in = $instance['linkedin'];
+        $yt = $instance['youtube'];
+
+
+        $title = apply_filters('widget_title', $instance['title']);
+        echo $args['before_widget'];
+
+        if(!empty($title)){
+            echo $args['before_title'].$title.$args['after_title'];
+        }
+        echo '<ul class="social-icons">';
+
+            if(!empty($fb)){
+                echo '<li><a href="'.$fb.'" class="btn btn-facebook" target="_blank"><span class="fa fa-facebook"></span></a></li>';
+            }
+            if(!empty($tweet)){
+                echo '<li><a href="'.$tweet.'" class="btn btn-twitter" target="_blank"><span class="fa fa-twitter"></span></a></li>';
+            }
+            if(!empty($google)){
+                echo '<li><a href="'.$google.'" class="btn btn-google" target="_blank"><span class="fa fa-google"></span></a></li>';
+            }
+            if(!empty($inst)){
+                echo '<li><a href="'.$inst.'" class="btn btn-instagram" target="_blank"><span class="fa fa-instagram"></span></a></li>';
+            }
+            if(!empty($pinterest)){
+                echo '<li><a href="'.$pinterest.'" class="btn btn-pinterest" target="_blank"><span class="fa fa-pinterest"></span></a></li>';
+            }
+            if(!empty($in)){
+                echo '<li><a href="'.$in.'" class="btn btn-linkedin" target="_blank"><span class="fa fa-linkedin"></span></a></li>';
+            }
+            if(!empty($yt)){
+                echo '<li><a href="'.$yt.'" class="btn btn-youtube" target="_blank"><span class="fa fa-youtube"></span></a></li>';
+            }
+        echo '</ul>';
+    //    echo '<p>'.$text.'</p>';
+        echo $args['after_widget'];
+
+    }
+
+    //wyświetlająca prosty formularz z ustawieniami, my używamy wyłącznie pola do uzupełnienia tytułu
+    public function form($instance) {
+            if(isset($instance['title'])){
+                $title = $instance['title'];
+            } else {
+                $title = 'FOLLOW ME';
+            }
+            $fb = $instance['facebook'];
+            $tweet = $instance['twitter'];
+            $google = $instance['google'];
+            $inst = $instance['instagram'];
+            $pinterest = $instance['pinterest'];
+            $in = $instance['linkedin'];
+            $yt = $instance['youtube'];
+
+            echo '<p><label for="'.$this->get_field_id('title').'">'.__('Title:').'</label><input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'" /></p>';
+            echo '<p><br/></p>';
+            echo '<p><label for="'.$this->get_field_id('facebook').'">'.__('Facebook:').'</label><input class="widefat" id="'.$this->get_field_id('facebook').'" name="'.$this->get_field_name('facebook').'" type="text" value="'.esc_attr($fb).'" /></p>';
+            echo '<p><label for="'.$this->get_field_id('twitter').'">'.__('Twitter:').'</label><input class="widefat" id="'.$this->get_field_id('twitter').'" name="'.$this->get_field_name('twitter').'" type="text" value="'.esc_attr($tweet).'" /></p>';
+            echo '<p><label for="'.$this->get_field_id('google').'">'.__('Google:').'</label><input class="widefat" id="'.$this->get_field_id('google').'" name="'.$this->get_field_name('google').'" type="text" value="'.esc_attr($google).'" /></p>';
+            echo '<p><label for="'.$this->get_field_id('instagram').'">'.__('Instagram:').'</label><input class="widefat" id="'.$this->get_field_id('instagram').'" name="'.$this->get_field_name('instagram').'" type="text" value="'.esc_attr($inst).'" /></p>';
+            echo '<p><label for="'.$this->get_field_id('pinterest').'">'.__('Pinterest:').'</label><input class="widefat" id="'.$this->get_field_id('pinterest').'" name="'.$this->get_field_name('pinterest').'" type="text" value="'.esc_attr($pinterest).'" /></p>';
+            echo '<p><label for="'.$this->get_field_id('linkedin').'">'.__('Linkedin:').'</label><input class="widefat" id="'.$this->get_field_id('linkedin').'" name="'.$this->get_field_name('linkedin').'" type="text" value="'.esc_attr($in).'" /></p>';
+            echo '<p><label for="'.$this->get_field_id('youtube').'">'.__('Youtube:').'</label><input class="widefat" id="'.$this->get_field_id('youtube').'" name="'.$this->get_field_name('youtube').'" type="text" value="'.esc_attr($yt).'" /></p>';
+    }
+
+    //zapis konfiguracji – możemy tutaj sprawdzić poprawność wprowadzonych danych
+    public function update($new_instance, $old_instance) {
+        $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+
+        $instance['facebook'] = (!empty($new_instance['facebook'])) ? strip_tags($new_instance['facebook']) : '';
+        $instance['twitter'] = (!empty($new_instance['twitter'])) ? strip_tags($new_instance['twitter']) : '';
+        $instance['google'] = (!empty($new_instance['google'])) ? strip_tags($new_instance['google']) : '';
+        $instance['instagram'] = (!empty($new_instance['instagram'])) ? strip_tags($new_instance['instagram']) : '';
+        $instance['pinterest'] = (!empty($new_instance['pinterest'])) ? strip_tags($new_instance['pinterest']) : '';
+        $instance['linkedin'] = (!empty($new_instance['linkedin'])) ? strip_tags($new_instance['linkedin']) : '';
+        $instance['youtube'] = (!empty($new_instance['youtube'])) ? strip_tags($new_instance['youtube']) : '';
+
+        return $instance;
+    }
+
+}
+
+function register_jwba_social_widget() {
+    register_widget('jwba_social_widget');
+}
+add_action('widgets_init', 'register_jwba_social_widget');
