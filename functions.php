@@ -31,6 +31,27 @@ function my_custom_formatting($content){
     endif;
 }
 
+/**
+ * enqueue scripts and styles 
+ * GOOGLE MAP APIS
+*/
+
+function my_acf_init() {
+	
+	acf_update_setting('google_api_key', 'AIzaSyDUNBtyAPVbinBn_P2OdztPEuESrMsmnZY');
+}
+
+add_action('acf/init', 'my_acf_init');
+
+function nr_load_scripts() {
+	//https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false
+	wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDUNBtyAPVbinBn_P2OdztPEuESrMsmnZY',null,null,true);  
+	wp_enqueue_script('googlemaps');
+		
+}
+add_action( 'wp_enqueue_scripts', 'nr_load_scripts' );
+
+
 
 /**
 * Outputs the url of ACF image object
