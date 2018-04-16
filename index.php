@@ -1,79 +1,90 @@
-<!doctype html>
-<html lang="pl">
-  <head>
-    <title><?php bloginfo('name'); ?> | <?php wp_title(); ?></title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1, initial-scale=1, minimum-scale=1" />
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 
-    <meta name="description" content="<?php bloginfo('description'); ?>" />
-    <meta name="keywords" content="" />
+<head>
+  <!-- encoding -->
+	<meta charset="<?php bloginfo('charset'); ?>">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <!-- info / SEO -->
+  <title><?php echo (get_field('title', 'option')) ? get_field('title', 'option') : get_bloginfo('title'); ?></title>
+	<meta name="description" content="<?php echo (get_field('title', 'option')) ? get_field('description', 'option') : get_bloginfo('description'); ?>">
+	
+  <!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto:300,400,500" rel="stylesheet">
+	<?php wp_head(); ?>
 
-    <script src="<?php bloginfo('template_url'); ?>/js/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+	<!-- remove this line on production server -/->
+	<script>
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+			':35729/livereload.js?snipver=1"></' + 'script>')
+	</script>
+	<!-- remove this line on production server -->
+</head>
 
-    <link href="<?php bloginfo('template_url'); ?>/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <script src="<?php bloginfo('template_url'); ?>/bootstrap/js/bootstrap.min.js"></script>
+<body <?php body_class(); ?>>
+    <noscript>
+      Do pelnego funkcjonowania witryny potrzebny jest JavaScript.
+      <br/>
+      <br/> This page needs JavaScript activated to work.
+      <style>
+        [data-aos] {
+          opacity: 1 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+        }
 
-    <link href="<?php bloginfo('template_url'); ?>/css/reset.css" media="all" rel="stylesheet" type="text/css">
-    <link href="<?php bloginfo('template_url'); ?>/css/layout.css" media="all" rel="stylesheet" type="text/css">
-    <link href="<?php bloginfo('template_url'); ?>/style.css" media="all" rel="stylesheet" type="text/css">
-    <link href="<?php bloginfo('template_url'); ?>/images/fa/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        noscript {
+          position: fixed;
+          z-index: 123;
+          background: #f00;
+          text-align: center;
+          width: 100%;
+          display: block;
+          padding: 20px 20px;
+          width: 250px;
+          top: 0;
+        }
 
-    <!-- owl -->
-    <link href="<?php bloginfo('template_url'); ?>/owl/owl.carousel.css" media="all" rel="stylesheet" type="text/css">
-    
-    <!-- wow.js -->
-    <link href="<?php bloginfo('template_url'); ?>/wow/animate.css" media="all" rel="stylesheet" type="text/css">
-    
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+        .owl-carousel {
+          display: block;
+        }
+      </style>
+    </noscript>
 
-    <!-- wp_head -->
-    <?php wp_head(); ?>
-  </head>
-  <body>
-<!--
-  <div id="loader">
-    <div class="logo">
-      <img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt="logo">
+    <header class="header" role="banner">
+      <div class="grid">
+        <a class="header__branding" href="<?php echo get_home_url(); ?>">
+          <img src="<?php asset('images/logo.svg') ?>" alt="">
+        </a>
 
-      <img id="loaderImg" src="<?php bloginfo('template_url'); ?>/images/loader.png" alt="">
-    </div>
-  </div>
--->
+        <nav class="header__nav" role="navigation">
 
-  <section id="navbar" class="wow fadeInUp">
-    <div class="wrap">
+          <?php wp_nav_menu(array('pl_PL' => 'primary')); ?>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-4 logo">
-          <a href="<?php bloginfo('home'); ?>"><img src="<?php bloginfo('template_url'); ?>/images/logo.png" alt=""></a>
-        </div>
-
-        <div class="col-xs-12 col-sm-8 menus">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+          <button class="header__nav__button menu__toggle">
+            <span class="menu__line"></span>
+            <span class="menu__line"></span>
+            <span class="menu__line"></span>
           </button>
 
-          <div id="menu" class="collapse">
-            <?php  wp_nav_menu( array( 'theme_location' => 'primary-menu' ) ); ?>
-          </div>
-        </div>
-        
+        </nav>
+
       </div>
+    </header>
 
-    </div>
-  </section>
-    
-<?php //get_footer(); ?>
+    <main class="main">
 
-    <script src="<?php bloginfo('template_url'); ?>/js/smoothScrolling.js" type="text/javascript"></script>
-<!--
-    <script src="<?php bloginfo('template_url'); ?>/js/ajax.js" type="text/javascript"></script>
--->
+    </main>
+
+    <footer class="footer">
+        <div class="wrap content">
+
+        </div>
+    </footer>
+
+    <script src="<?php bloginfo('template_url'); ?>/dist/js/smoothScrolling.js" type="text/javascript"></script>
   
     <?php wp_footer(); ?>
   </body>
