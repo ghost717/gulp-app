@@ -277,12 +277,16 @@ if (function_exists('acf_add_options_page')) {
 add_action('after_setup_theme', 'wpdocs_theme_setup');
 function wpdocs_theme_setup(){
     add_image_size('fullhd', 1920, 1080, true);
+    add_image_size('thumb600', 600, 600, true);
+    add_image_size('thumb1200', 1200, 600, true);
+    add_image_size('thumb900', 900, 600, true);
 }
 
 if (!function_exists('webs_setup')) :
  function webs_setup()
  {
      add_theme_support('post-thumbnails');
+
      register_nav_menus(array(
          'primary-menu' => esc_html__('Primary', 'webs'),
      ));
