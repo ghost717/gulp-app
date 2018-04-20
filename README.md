@@ -3,6 +3,8 @@
 
 ## Todos 
 - dodać reset.css
+- bootstrap.css
+- owl.css + aktualizacja owl
 - napisać app.scss
 
 ## Info / Wersja
