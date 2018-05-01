@@ -39,6 +39,7 @@ var jsLib = [
 // merged into dist/css/lib.js
 var cssLib = [
 	dir.csslib + 'reset.css',
+	dir.csslib + 'bootstrap.css',
 	dir.csslib + 'owl.css',
 	dir.csslib + 'grid.css',
 	// dir.csslib + 'aio.css',

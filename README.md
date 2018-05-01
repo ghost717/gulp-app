@@ -2,11 +2,9 @@
 
 
 ## Todos 
-- bootstrap.css
-- owl.css + aktualizacja owl
-- napisać app.scss
 - dodać acf-map + style
 - dodać lightboxa
+- napisać app.scss
 - klasa .flex-wrap
 - if/for/while w scss
 
@@ -20,6 +18,7 @@ Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://ww
 
 #### 3.1
 - dodano reset.css
+- dodano bootstrap.css
 - dodano biblioteki owl + aktualizacja
 
 #### 3.0
