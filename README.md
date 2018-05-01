@@ -2,7 +2,6 @@
 
 
 ## Todos 
-- dodać acf-map + style
 - dodać lightboxa
 - napisać app.scss
 - klasa .flex-wrap
@@ -20,6 +19,7 @@ Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://ww
 - dodano reset.css
 - dodano bootstrap.css
 - dodano biblioteki owl + aktualizacja
+- dodano acf-map.js ze stylami
 
 #### 3.0
 - gulp + sass
