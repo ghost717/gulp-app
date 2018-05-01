@@ -2,7 +2,6 @@
 
 
 ## Todos 
-- dodać lightboxa
 - napisać app.scss
 - klasa .flex-wrap
 - if/for/while w scss
@@ -20,6 +19,7 @@ Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://ww
 - dodano bootstrap.css
 - dodano biblioteki owl + aktualizacja
 - dodano acf-map.js ze stylami
+- dodano jquery.lightbox.js
 
 #### 3.0
 - gulp + sass
