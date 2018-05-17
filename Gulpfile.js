@@ -31,6 +31,8 @@ var dir = {
 var jsLib = [
 	dir.jslib + 'jq.js',
 	dir.jslib + 'owl.js',
+	dir.jslib + 'acf-map.js',
+	dir.jslib + 'jquery.lightbox.js',
 	// dir.jslib + 'aio.js',
 	// dir.jslib + 'anime.js',
 	// dir.jslib + 'rellax.js',
