@@ -52,8 +52,6 @@
         </div>
     </footer>
 
-    <script src="<?php bloginfo('template_url'); ?>/dist/js/smoothScrolling.js" type="text/javascript"></script>
-  
     <?php wp_footer(); ?>
   </body>
 </html>
