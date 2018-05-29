@@ -33,6 +33,7 @@ Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://ww
 - dodano customize bootstrap, bootstrap-grid
 - dodano fa 4.7
 - modyfikacja index.php, dodano no-script.php
+- aktualizacja skryptów js odpowiadających za smoothScrolling i menu
 
 #### v3.1
 - dodano reset.css

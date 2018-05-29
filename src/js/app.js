@@ -39,7 +39,13 @@ jQuery(document).ready(function ($) {
 	// });
 
 	// MENUTOGGLE
-	$(".menu__toggle").click(function (event) {
-		$(".header").toggleClass('header--toggled');
-	});
+	$(".menu-toggle").click(function(event) {
+        $(this).toggleClass('toggled');
+        $("#menu").toggleClass('active');
+    });
+
+    $(".menu-item").click(function(event) {
+        $(".menu-toggle").removeClass('toggled');
+        $("#menu").removeClass('active');
+    });
 });
