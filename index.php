@@ -12,49 +12,17 @@
 	<meta name="description" content="<?php echo (get_field('title', 'option')) ? get_field('description', 'option') : get_bloginfo('description'); ?>">
 	
   <!-- fonts -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto:300,400,500" rel="stylesheet">
 	<?php wp_head(); ?>
-
-	<!-- remove this line on production server -/->
-	<script>
-		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-			':35729/livereload.js?snipver=1"></' + 'script>')
-	</script>
-	<!-- remove this line on production server -->
 </head>
 
 <body <?php body_class(); ?>>
-    <noscript>
-      Do pelnego funkcjonowania witryny potrzebny jest JavaScript.
-      <br/>
-      <br/> This page needs JavaScript activated to work.
-      <style>
-        [data-aos] {
-          opacity: 1 !important;
-          -webkit-transform: none !important;
-          transform: none !important;
-        }
 
-        noscript {
-          position: fixed;
-          z-index: 123;
-          background: #f00;
-          text-align: center;
-          width: 100%;
-          display: block;
-          padding: 20px 20px;
-          width: 250px;
-          top: 0;
-        }
-
-        .owl-carousel {
-          display: block;
-        }
-      </style>
-    </noscript>
+    <?php get_template_part('no-script'); ?>
 
     <header class="header" role="banner">
-      <div class="grid">
+      <div class="wrap">
         <a class="header__branding" href="<?php echo get_home_url(); ?>">
           <img src="<?php asset('images/logo.svg') ?>" alt="">
         </a>

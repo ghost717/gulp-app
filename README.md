@@ -1,8 +1,6 @@
 # gulp-sass-app
 
 ## Todos 
-- fa  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
 - napisać app.scss
 - klasa .flex-wrap
 - if/for/while w scss
@@ -33,6 +31,8 @@ Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://ww
 
 #### v3.2
 - dodano customize bootstrap, bootstrap-grid
+- dodano fa 4.7
+- modyfikacja index.php, dodano no-script.php
 
 #### v3.1
 - dodano reset.css
