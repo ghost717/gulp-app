@@ -7,6 +7,9 @@
 - klasa .flex-wrap
 - if/for/while w scss
 - wtyczka addtoany
+- css grid
+- update Lightboxa
+
 
 ## Info / Wersja
 Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://www.nafrontendzie.pl/metodyki-css-2-bem
@@ -27,6 +30,9 @@ Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://ww
 
 
 ## Changelog
+
+#### v3.2
+- dodano customize bootstrap, bootstrap-grid
 
 #### v3.1
 - dodano reset.css
