@@ -1,5 +1,10 @@
 # gulp-sass-app
 
+## Info / Wersja
+Motyw do WordPressa bazujący na Gulpfile.js z podpiętym sass. Aplikacja napisana zgodnie z metodyką BEM.
+https://www.nafrontendzie.pl/metodyki-css-2-bem
+
+
 ## Todos 
 - napisać app.scss
 - klasa .flex-wrap
@@ -7,10 +12,8 @@
 - wtyczka addtoany
 - css grid
 - update Lightboxa
+- fluidMedia
 
-
-## Info / Wersja
-Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://www.nafrontendzie.pl/metodyki-css-2-bem
 
 ## Instalacja / komendy
 
@@ -34,6 +37,7 @@ Przebudowana aplikacja gulp-app 2.0. Napisana zgodnie z metodyka BEM. https://ww
 - dodano fa 4.7
 - modyfikacja index.php, dodano no-script.php
 - aktualizacja skryptów js odpowiadających za smoothScrolling i menu
+- aktualizacja css
 
 #### v3.1
 - dodano reset.css
