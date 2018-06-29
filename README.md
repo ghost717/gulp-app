@@ -12,8 +12,8 @@ https://www.nafrontendzie.pl/metodyki-css-2-bem
 - wtyczka addtoany
 - css grid
 - update Lightboxa
-- fluidMedia
-
+- update ACF?
+- wymiana jQuery
 
 ## Instalacja / komendy
 

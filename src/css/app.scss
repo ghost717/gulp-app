@@ -223,6 +223,10 @@ h6{
 	transform: skew(87deg);
 }
 
+.--relative{
+	position: relative;
+}
+
 .shadow{
     background: -webkit-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,0,0,1)); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1)); /* For Opera 11.1 to 12.0 */
