@@ -12,6 +12,8 @@ https://www.nafrontendzie.pl/metodyki-css-2-bem
 - wtyczka addtoany
 - css grid
 - update Lightboxa
+- acf options
+- cache
 - update ACF?
 - wymiana jQuery
 

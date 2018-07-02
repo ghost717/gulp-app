@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
   <!-- info / SEO -->
-  <title><?php echo (get_field('title', 'option')) ? get_field('title', 'option') : get_bloginfo('title'); ?></title>
+  <title><?php echo (get_field('title', 'option')) ? get_field('title', 'option') : bloginfo('title').' '.wp_title();; ?></title>
 	<meta name="description" content="<?php echo (get_field('title', 'option')) ? get_field('description', 'option') : get_bloginfo('description'); ?>">
 	
   <!-- fonts -->
