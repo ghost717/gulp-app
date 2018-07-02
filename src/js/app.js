@@ -17,7 +17,37 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
+	var ofertaThumbs = $('.main__oferta .owl-carousel');
+	ofertaThumbs.owlCarousel({
+			loop:true,
+			margin: 0,
+			nav: true,
+			dots: false,
+			mouseDrag: false,
+		//	lazyLoad : true,
+		//	animateOut: 'fadeOut',
+			navText: ["<", ">"],
+			responsive:{
+					0:{
+							items:1
+					},
+					768:{
+							items:2
+					}
+			}
+	});
+	
+	// MENUTOGGLE
+	$(".menu-toggle").click(function(event) {
+				$(this).toggleClass('toggled');
+				$("#menu").toggleClass('active');
+		});
 
+		$(".menu-item").click(function(event) {
+				$(".menu-toggle").removeClass('toggled');
+				$("#menu").removeClass('active');
+		});
+		
 	// rellax example
 	// var rellax = new Rellax('.rellax', {
 	//   center: true,
@@ -38,14 +68,4 @@ jQuery(document).ready(function ($) {
 	// 	speed: 500
 	// });
 
-	// MENUTOGGLE
-	$(".menu-toggle").click(function(event) {
-        $(this).toggleClass('toggled');
-        $("#menu").toggleClass('active');
-    });
-
-    $(".menu-item").click(function(event) {
-        $(".menu-toggle").removeClass('toggled');
-        $("#menu").removeClass('active');
-    });
 });

@@ -11,7 +11,6 @@ https://www.nafrontendzie.pl/metodyki-css-2-bem
 - if/for/while w scss
 - wtyczka addtoany
 - update Lightboxa
-- owl options
 - cache
 - wymiana jQuery
 
@@ -38,6 +37,7 @@ https://www.nafrontendzie.pl/metodyki-css-2-bem
 - aktualizacja css
 - aktualizacja index.php
 - dodano _grid.scss
+- owl options
 
 #### v3.2
 - dodano customize bootstrap, bootstrap-grid
