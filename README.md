@@ -10,11 +10,9 @@ https://www.nafrontendzie.pl/metodyki-css-2-bem
 - klasa .flex-wrap
 - if/for/while w scss
 - wtyczka addtoany
-- css grid
 - update Lightboxa
-- acf options
+- owl options
 - cache
-- update ACF?
 - wymiana jQuery
 
 ## Instalacja / komendy
@@ -33,6 +31,13 @@ https://www.nafrontendzie.pl/metodyki-css-2-bem
 
 
 ## Changelog
+
+#### v3.21
+- akutalizacja title
+- aktualizacja ACF
+- aktualizacja css
+- aktualizacja index.php
+- dodano _grid.scss
 
 #### v3.2
 - dodano customize bootstrap, bootstrap-grid

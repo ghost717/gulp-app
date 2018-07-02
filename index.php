@@ -21,14 +21,14 @@
 
     <?php get_template_part('no-script'); ?>
 
-    <header class="header" role="banner">
+    <header class="header">
       <div class="wrap">
+
         <a class="header__branding" href="<?php echo get_home_url(); ?>">
           <img src="<?php asset('images/logo.svg') ?>" alt="">
         </a>
 
         <nav class="header__nav" role="navigation">
-
           <?php wp_nav_menu(array('pl_PL' => 'primary')); ?>
 
           <button class="header__nav__button menu__toggle">
@@ -36,7 +36,6 @@
             <span class="menu__line"></span>
             <span class="menu__line"></span>
           </button>
-
         </nav>
 
       </div>
