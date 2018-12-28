@@ -14,6 +14,15 @@
   <!-- fonts -->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Roboto:300,400,500" rel="stylesheet">
+
+  <!-- livereload -->
+  <?php if (strpos(get_home_url(), 'project.io') == true || strpos(get_home_url(), 'localhost') == true) : ?>
+	<script>
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+			':35729/livereload.js?snipver=1"></' + 'script>')
+	</script>
+	<?php endif; ?>
+
 	<?php wp_head(); ?>
 </head>
 
@@ -42,7 +51,7 @@
     </header>
 
     <main class="main">
-
+asdasd test test2
     </main>
 
     <footer class="footer">
