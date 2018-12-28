@@ -13,14 +13,15 @@ var include = require("gulp-include");
 var run = require('gulp-run');
 
 var dir = {
-	// gets minified, compiled - merged to /dist/js/app.css
+	// gets minified, compiled - merged to /dist/css/app.css
 	css: 'src/css/*',
 	csslib: 'src/css/lib/*',
 	// gets minified, compiled, prefixed - merged to /dist/css/app.css
 	js: 'src/js/*',
 
-	// gets minified, compiled - merged to /dist/js/lib.lib
+	// gets minified, compiled - merged to /dist/js/lib.js
 	jslib: 'src/js/lib/_libraries.js',
+	// jslib: 'src/js/lib/*.js',
 
 
 	php: '*.php',

@@ -44,13 +44,13 @@ $cols: 4;
 				visibility: hidden;
 			}
 			.bg{
-				opacity: 0.7;
+				opacity: 1;
 			}
 		}
 		&:hover{
 			.thumb{
 				.bg{
-					opacity: 1;
+					opacity: 0.7;
 					transform: scale(1.1);
 				}
 			}
