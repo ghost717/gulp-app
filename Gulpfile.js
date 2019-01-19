@@ -62,7 +62,7 @@ gulp.task('css', function () {
 
 // merge, compile, minify js files
 gulp.task('js', function () {
-	return gulp.src([dir.js, dir.jslib])
+	return gulp.src([dir.jslib, dir.js])
 		.pipe(concat('app.js'))
 		.pipe(babel({
 			presets: ['env']
@@ -105,8 +105,8 @@ gulp.task('livereload', function () {
 });
 
 gulp.task('default', function () {
-	gulp.watch([dir.css, dir.csslib], ['css']);
-	gulp.watch([dir.js, dir.jslib], ['js']);
+	gulp.watch([dir.csslib, dir.css], ['css']);
+	gulp.watch([dir.jslib, dir.js], ['js']);
 	gulp.watch(dir.img, ['images']);
 	gulp.start('livereload');
 });
