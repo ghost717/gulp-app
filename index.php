@@ -33,7 +33,7 @@
       <div class="wrap">
 
         <a class="header__branding" href="<?php echo get_home_url(); ?>">
-          <img src="<?php asset('images/logo.svg') ?>" alt="">
+          <!-- <img src="<?php asset('images/logo.svg') ?>" alt=""> -->
         </a>
 
         <nav class="header__nav" role="navigation">
