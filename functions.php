@@ -382,20 +382,19 @@ if (!function_exists('webs_setup')) :
 endif;
 add_action('after_setup_theme', 'webs_setup');
 
-// function webs_widgets_init()
-// {
-//     register_sidebar(array(
-//         'name' => esc_html__('Sidebar', 'webs'),
-//         'id' => 'sidebar-1',
-//         'description' => esc_html__('Add widgets here.', 'webs'),
-//         'before_widget' => '<section id="%1$s" class="widget %2$s">',
-//         'after_widget' => '</section>',
-//         'before_title' => '<h2 class="widget-title">',
-//         'after_title' => '</h2>',
-//     ));
-// }
-// add_action('widgets_init', 'webs_widgets_init');
-
+function webs_widgets_init()
+{
+    register_sidebar(array(
+        'name' => esc_html__('Social', 'webs'),
+        'id' => 'social',
+        'description' => esc_html__('Add widgets here.', 'webs'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="widget-title">',
+        'after_title' => '</h2>',
+    ));
+}
+add_action('widgets_init', 'webs_widgets_init');
 
 /**
 * Returns the path to the asset
@@ -422,7 +421,6 @@ add_action('wp_enqueue_scripts', 'webs_scripts');
 
 // body class
 require get_template_directory() . '/inc/extras.php';
-
 
 /**
  * Disable the emoji's
@@ -458,9 +456,6 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
     }
     return $urls;
 }
-
-
-
 
 class jwba_social_widget extends WP_Widget {
 
@@ -567,3 +562,28 @@ function register_jwba_social_widget() {
     register_widget('jwba_social_widget');
 }
 add_action('widgets_init', 'register_jwba_social_widget');
+
+
+// add options page
+if (function_exists('acf_add_options_page')) {
+	// Main page ACF Option
+    $parent = acf_add_options_page(array(
+        'page_title'    => '314 Theme',
+        'menu_title'    => '314 Theme',
+        'redirect'      => false
+    ));
+
+    // Subpage ACF Option
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Ustawienia SEO',
+        'menu_title'    => 'SEO',
+        'parent_slug'   => $parent['menu_slug'],
+    ));
+
+    // Subpage ACF Option
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Ustawienia stopki',
+        'menu_title'    => 'Footer',
+        'parent_slug'   => $parent['menu_slug'],
+    ));
+}
