@@ -4,14 +4,14 @@
 
 $transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 
-@import "lib/reset.css";
-@import "lib/owl.css";
-@import "lib/bootstrap-grid.min.css";
-@import "lib/aoe.css";
-@import "lib/_grid.scss";
-@import "lib/_vars.scss";
-@import "lib/_menu.scss";
-@import "lib/_app.scss";
+@import "./lib/reset.scss";
+@import "./lib/owl.scss";
+@import "./lib/bootstrap-grid.min.scss";
+@import "./lib/aoe.scss";
+@import "./lib/_grid.scss";
+@import "./lib/_vars.scss";
+@import "./lib/_menu.scss";
+@import "./lib/_app.scss";
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,800&amp;subset=latin-ext');
 

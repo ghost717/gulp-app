@@ -410,10 +410,10 @@ function asset($asset)
 // inc scripts and styles
 function webs_scripts()
 {
-    wp_enqueue_style('libcss', get_template_directory_uri() . '/dist/css/lib.css', true);
+    // wp_enqueue_style('libcss', get_template_directory_uri() . '/dist/css/lib.css', true);
     wp_enqueue_style('maincss', get_template_directory_uri() . '/dist/css/app.css', true);
   
-    wp_enqueue_script('libjs', get_template_directory_uri() . '/dist/js/lib.js', false);
+    // wp_enqueue_script('libjs', get_template_directory_uri() . '/dist/js/lib.js', false);
     wp_enqueue_script('mainjs', get_template_directory_uri() . '/dist/js/app.js', false);
 }
 add_action('wp_enqueue_scripts', 'webs_scripts');
