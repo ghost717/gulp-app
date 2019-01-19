@@ -10,13 +10,54 @@ $transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 @import "lib/aoe.css";
 @import "lib/_grid.scss";
 @import "lib/_vars.scss";
+@import "lib/_menu.scss";
 @import "lib/_app.scss";
-@import "lib/_layout.scss";
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,800&amp;subset=latin-ext');
 
 *{
 	transition: $transition;
+}
+
+html,
+body {
+	overflow-x: hidden;
+	font-size: 1rem;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	color: $primary;
+	background-color: #f7f7f7;
+}
+
+// basic styling
+article, article p{
+	font-size: 16px;
+	line-height: 22px;
+}
+
+p{
+	margin-bottom: 20px;
+}
+
+.content{
+	padding: 20px;
+}
+
+img{
+	width: auto;
+	height: auto;
+}
+
+svg{
+	width: 15px;
+	height: 15px;
+}
+
+a {
+	color: $primary;
 }
 
 a.more{
@@ -67,6 +108,63 @@ h6{
 	font-size: 14px;
 }
 
+section, header, footer{
+	position: relative;
+}
+
+.wrap{
+	width: 100%;
+	max-width: 1170px;
+	margin: auto;
+}
+
+.header{
+	.wrap{
+		overflow: hidden;
+	}
+
+	&__branding{
+		display: block;
+		float: left;
+	}
+	&__logo{
+		display: block;
+		width: 100%;
+		max-width: 240px;
+	}
+	&__nav{
+		width: calc((100% - 240px));
+		float: left;
+
+		ul.menu, ul{
+			text-align: right;
+
+			li{
+				display: inline-block;
+				padding-left: 10px;
+
+				a{
+					display: block;
+					text-transform: uppercase;
+					color: $secondary;
+					font-size: 14px;
+					text-decoration: none;
+				}
+			}
+			li:hover, li.current_page_item{
+				a{
+					
+				}
+			}
+		}
+	}
+	
+}
+
+.header{
+
+}
+
 .main{
 
 }
@@ -75,3 +173,32 @@ h6{
 
 }
 
+@media(min-width: 768px){
+	article.content{
+		padding: 40px;
+	}
+}
+
+@media(min-width: 1200px){
+	.content{
+		padding: 40px 0;
+	}
+	article.content{
+		padding: 40px;
+	}
+	h1, h2, h3, h4, h5, h6{
+		margin-bottom: 40px;
+	}
+}
+
+@media(min-width: 1600px){
+	.content{
+		padding: 50px 0;
+	}
+	article.content{
+		padding: 50px;
+	}
+	h1, h2, h3, h4, h5, h6{
+		margin-bottom: 50px;
+	}
+}
