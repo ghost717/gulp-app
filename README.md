@@ -1,62 +1,68 @@
 # gulp-sass-app
 
-## Info / Wersja
-Motyw do WordPressa bazujący na Gulpfile.js z podpiętym sass. Aplikacja napisana zgodnie z metodyką BEM.
-https://www.nafrontendzie.pl/metodyki-css-2-bem
+A Wordpress startup theme based on gulp and sass. Compatible with ACF plug.
 
 
-## Todos 
-- napisać app.scss
-- klasa .flex-wrap
-- if/for/while w scss
-- wtyczka addtoany
-- update Lightboxa
-- cache
-- wymiana jQuery
+## Info 
 
-## Instalacja / komendy
+**SRC** directory contains all the assets - gulp with watch this directory and listen for changes.
+When you save a file inside **SRC** folder gulp will recognize changes and rebuild the project  to your **DIST** directory.
 
-#### Instalacja
+
+## Installation / Commands
+
+```bash
+
+Install package
+
 > npm install
 
-#### Uruchomienie
+
+Run
+
 > gulp  
 
-#### Build
+
+Build
+
 > gulp build
 
-#### Clean
+
+clean
+
 > gulp clean
 
-
-## Changelog
-
-#### v3.21
-- akutalizacja title
-- aktualizacja ACF
-- aktualizacja css
-- aktualizacja index.php
-- dodano _grid.scss
-- owl options
-
-#### v3.2
-- dodano customize bootstrap, bootstrap-grid
-- dodano fa 4.7
-- modyfikacja index.php, dodano no-script.php
-- aktualizacja skryptów js odpowiadających za smoothScrolling i menu
-- aktualizacja css
-
-#### v3.1
-- dodano reset.css
-- dodano bootstrap.css
-- dodano biblioteki owl + aktualizacja
-- dodano acf-map.js ze stylami
-- dodano jquery.lightbox.js
-
-#### v3.0
-- gulp + sass
+```
 
 
+### Livereload
 
+This project uses [livereload](https://www.npmjs.com/package/livereload). Be sure you have that installed.
+
+```bash
+npm install -g livereload
+
+```
+
+### Gulp packages
+
+- ES6 compiler
+- Sass compiler
+- Autoprefixer
+- Assets merging
+- Assets minification (css/js/img)
+
+
+### Recommended / Inluded Plugins
+
+| Plugin | Description |
+| ------ | ------ |
+| ACF PRO | [Fields manager](https://www.advancedcustomfields.com/resources/)|
+| Contacf form 7 | [Form bulder](https://wordpress.org/support/plugin/contact-form-7)|
+| Duplicator PRO | [Backup and migration](https://snapcreek.com/support/)|
+
+
+### SOURCE
+[BEM](https://www.nafrontendzie.pl/metodyki-css-2-bem)
 
 
