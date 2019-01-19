@@ -130,7 +130,7 @@ var map = null;
 
 $(document).ready(function(){
 
-  $('.acf-map').each(function(){
+  $('.acf__map').each(function(){
 
     // create map
     map = new_map( $(this) );

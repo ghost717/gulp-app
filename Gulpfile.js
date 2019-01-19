@@ -20,8 +20,8 @@ var dir = {
 	js: 'src/js/*',
 
 	// gets minified, compiled - merged to /dist/js/lib.js
-	jslib: 'src/js/lib/_libraries.js',
-	// jslib: 'src/js/lib/*.js',
+	// jslib: 'src/js/lib/_libraries.js',
+	jslib: 'src/js/lib/*.js',
 
 
 	php: '*.php',
@@ -85,10 +85,18 @@ gulp.task('js', function () {
 // merge all js lib files
 gulp.task('jslib', function () {
 	return gulp.src(dir.jslib)
-		.pipe(include())
 		.pipe(concat('lib.js'))
+		.pipe(babel({
+			presets: ['env']
+		}))
+		.on('error', function (e) {
+			console.log(messages.error + e.loc.line);
+			console.log(e.message + ' ' + e.name);
+			this.emit('end');
+		})
 		.pipe(uglify().on('error', function (uglify) {
 			console.error(messages.uglify);
+			console.log(uglify);
 			this.emit('end');
 		}))
 		.pipe(gulp.dest(dir.buildJs));
