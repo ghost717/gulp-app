@@ -16,13 +16,12 @@ var dir = {
 	// gets minified, compiled - merged to /dist/css/app.css
 	css: 'src/css/*',
 	csslib: 'src/css/lib/*',
-	// gets minified, compiled, prefixed - merged to /dist/css/app.css
+
+	// gets minified, compiled, prefixed - merged to /dist/js/app.js
 	js: 'src/js/*',
 
-	// gets minified, compiled - merged to /dist/js/lib.js
-	// jslib: 'src/js/lib/_libraries.js',
+	// gets minified, compiled - merged to /dist/js/lib.js -> app.js
 	jslib: 'src/js/lib/*.js',
-
 
 	php: '*.php',
 	// images are first optimized
@@ -63,29 +62,8 @@ gulp.task('css', function () {
 
 // merge, compile, minify js files
 gulp.task('js', function () {
-	return gulp.src(dir.js)
+	return gulp.src([dir.js, dir.jslib])
 		.pipe(concat('app.js'))
-		.pipe(babel({
-			presets: ['env']
-		}))
-		.on('error', function (e) {
-			console.log(messages.error + e.loc.line);
-			console.log(e.message + ' ' + e.name);
-			this.emit('end');
-		})
-		.pipe(uglify().on('error', function (uglify) {
-			console.error(messages.uglify);
-			console.log(uglify);
-			this.emit('end');
-		}))
-		.pipe(gulp.dest(dir.buildJs));
-});
-
-
-// merge all js lib files
-gulp.task('jslib', function () {
-	return gulp.src(dir.jslib)
-		.pipe(concat('lib.js'))
 		.pipe(babel({
 			presets: ['env']
 		}))
@@ -128,14 +106,12 @@ gulp.task('livereload', function () {
 
 gulp.task('default', function () {
 	gulp.watch([dir.css, dir.csslib], ['css']);
-	gulp.watch(dir.js, ['js']);
-	gulp.watch(dir.jslib, ['jslib']);
+	gulp.watch([dir.js, dir.jslib], ['js']);
 	gulp.watch(dir.img, ['images']);
 	gulp.start('livereload');
 });
 
 gulp.task('build', function () {
 	gulp.start('js');
-	gulp.start('jslib');
 	gulp.start('css');
 });
