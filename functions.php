@@ -232,16 +232,16 @@ function kriesi_pagination($pages = '', $range = 2)
 }
 
 
-function post_type_produkty()
+function post_type_zabiegi()
 {
     $labels = array(
-    'name' => _x('Produkty', 'Produkty', 'webs'),
-    'singular_name' => _x('Produkt', 'Produkt', 'webs'),
+    'name' => _x('Zabiegi', 'Zabiegi', 'webs'),
+    'singular_name' => _x('Zabieg', 'Zabieg', 'webs'),
   );
     $args = array(
-    'label' => __('Produkt', 'webs'),
+    'label' => __('Zabieg', 'webs'),
     'labels' => $labels,
-    'supports' => array('title'),
+    'supports' => array('title', 'editor', 'thumbnail'),
     'hierarchical' => false,
     'public' => true,
     'show_ui' => true,
@@ -254,17 +254,16 @@ function post_type_produkty()
     'exclude_from_search' => false,
     'publicly_queryable' => true,
     'capability_type' => 'page',
-    'taxonomies' => array('category'),
+    // 'taxonomies' => array('category'),
   );
     
-  //register_post_type('produkty', $args);
+  register_post_type('zabieg', $args);
 }
-add_action('init', 'post_type_produkty', 0);
+add_action('init', 'post_type_zabiegi', 0);
 
-/*
 register_taxonomy(
-    "produkty",
-    array("produkt"),
+    "zabiegi",
+    array("zabieg"),
     array(
         "hierarchical" => true,
         "label" => "Kategorie",
@@ -272,8 +271,6 @@ register_taxonomy(
         "rewrite" => true
         )
 );
-*/
-
 
 // remove the wp version
 remove_action('wp_head', 'wp_generator');
