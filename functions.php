@@ -1,5 +1,61 @@
 <?php
 
+# GUTENBERG
+// if ( version_compare($GLOBALS['wp_version'], '5.0-beta', '>') ) {
+//     // WP > 5 beta
+//     add_filter( 'use_block_editor_for_post_type', '__return_false', 100 );
+// } else {
+//     // WP < 5 beta
+//     add_filter( 'gutenberg_can_edit_post_type', '__return_false' );
+// }
+
+function my_disable_gutenberg_for_post_type( $is_enabled, $post_type ) {
+    if ( 'page' == $post_type ) {  // disable for pages, change 'page' to you CPT slug
+        return false;
+    }
+
+    return $is_enabled;
+}
+if ( version_compare($GLOBALS['wp_version'], '5.0-beta', '>') ) {
+    // WP > 5 beta
+    add_filter( 'use_block_editor_for_post_type', 'my_disable_gutenberg_for_post_type', 10, 2 );
+} else {
+    // WP < 5 beta
+    add_filter( 'gutenberg_can_edit_post_type', 'my_disable_gutenberg_for_post_type', 10, 2 );
+}
+
+# WP ADMIN LOGO
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url('<?php echo get_template_directory_uri(); ?>/dist/img/logo.png');
+            height:70;
+            width:200px;
+            background-size: 190px 67px;
+            background-repeat: no-repeat;
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+/*Function to defer or asynchronously load scripts*/
+function js_async_attr($tag){
+
+    # Do not add defer or async attribute to these scripts
+    $scripts_to_exclude = array();
+    
+    foreach($scripts_to_exclude as $exclude_script){
+     if(true == strpos($tag, $exclude_script ) )
+     return $tag; 
+    }
+    
+    # Defer or async all remaining scripts not excluded above
+    return str_replace( ' src', ' defer="defer" src', $tag );
+}
+
+//add_filter( 'script_loader_tag', 'js_async_attr', 10 );
 
 /**
  * webs functions and definitions
