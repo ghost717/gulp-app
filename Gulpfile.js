@@ -114,4 +114,5 @@ gulp.task('default', function () {
 gulp.task('build', function () {
 	gulp.start('js');
 	gulp.start('css');
+	gulp.start('images');
 });
