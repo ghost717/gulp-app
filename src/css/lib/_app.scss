@@ -259,3 +259,33 @@
     }
 }
 
+#callnowbutton{
+	img{
+		width: 35px;
+		margin-right: 10px;
+	}
+	&:hover{
+		img{
+			transform: scale(1.2);
+		}
+	}
+}
+
+.tel{
+	position: relative;
+
+	&__hover{
+		visibility: hidden;
+		display: none;
+	}
+	@media(min-width: 992px){
+		&__primary{
+			visibility: hidden;
+			display: none;
+		}
+		&__hover{
+			visibility: visible;
+			display: inline-block;
+		}
+	}
+}

@@ -30,7 +30,23 @@ jQuery(document).ready(function ($) {
 		$(".menu__toggle").removeClass('toggled');
 		$(".header").removeClass('active');
 	});
-		
+	
+	$('.tel__hover').on( 'click', function(event){
+		event.preventDefault();
+
+		var href = $(this).prev().attr( 'href');
+		var h1 = href.substring(4,7);
+		var h2 = href.substring(7, 10);
+		var h3 = href.substring(10, 13);
+		var h4 = href.substring(13, 16);
+		//dzielenie
+		$(this).prev().html(h1 + ' ' + h2 + ' ' + h3 + ' ' + h4);
+
+		$(this).css('display', 'none');
+		$(this).prev().css('visibility', 'visible').css('display', 'inline-block');
+		$(this).parent().addClass('active');	
+	});
+
 	// rellax example
 	// var rellax = new Rellax('.rellax', {
 	//   center: true,

@@ -21,6 +21,11 @@ get_header(); ?>
                     
                 <?php endwhile; ?>
 
+                <span class="tel">
+                    <a class="tel__primary" href="tel:<?php the_field('tel'); ?>"><?php the_field('tel'); ?></a>
+                    <a class="tel__hover" href="#t">+71 344 ... (kliknij by zobaczyć)</a>
+                </span>
+                
             <?php endwhile; ?>
         </div>
 
