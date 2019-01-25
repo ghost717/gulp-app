@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-
 <head>
     <!-- encoding -->
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -9,10 +8,6 @@
     
     <!-- info / SEO -->
     <title><?php echo (get_field('title', 'option')) ? get_field('title', 'option') : bloginfo('title').' '.wp_title(); ?></title>
-    <meta name="description" content="<?php echo (get_field('title', 'option')) ? get_field('description', 'option') : get_bloginfo('description'); ?>">
-    
-    <!-- fonts -->
-    <!-- <link href="" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
 
     <!-- livereload -->
     <?php if (strpos(get_home_url(), 'localhost') == true) : ?>
