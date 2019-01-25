@@ -12,7 +12,7 @@
     <meta name="description" content="<?php echo (get_field('title', 'option')) ? get_field('description', 'option') : get_bloginfo('description'); ?>">
     
     <!-- fonts -->
-    <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <!-- <link href="" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
 
     <!-- livereload -->
     <?php if (strpos(get_home_url(), 'localhost') == true) : ?>
@@ -23,9 +23,10 @@
     <?php endif; ?>
 
     <?php wp_head(); ?>
+    <?php echo (get_field('header_text', 'option')) ? get_field('header_text', 'option') : ''; ?>
 </head>
-
 <body <?php body_class(); ?>>
+    <?php echo (get_field('body_text', 'option')) ? get_field('body_text', 'option') : ''; ?>
 
     <?php get_template_part('no-script'); ?>
 
@@ -59,6 +60,7 @@
         </div>
     </footer>
 
+    <?php echo (get_field('footer_text', 'option')) ? get_field('footer_text', 'option') : ''; ?>
     <?php wp_footer(); ?>
   </body>
 </html>
