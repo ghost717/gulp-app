@@ -55,6 +55,22 @@
         </div>
     </footer>
 
+    <?php if(isset($tab)): ?>
+
+      <section class="modal__form lightbox" <?php if(isset($tab)): echo 'style="display: block"'; endif; ?>>
+        <div class="wrap content">
+          <?php
+            $tab = $_GET['form'];
+            
+            if(isset($tab)){
+              the_field('umow_wizyte', 'option'); 
+            }
+          ?>
+        </div>
+      </section>
+      
+    <?php endif; ?>
+
     <?php echo (get_field('footer_text', 'option')) ? get_field('footer_text', 'option') : ''; ?>
     <?php wp_footer(); ?>
   </body>
