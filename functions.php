@@ -339,18 +339,6 @@ function cc_mime_types($mimes)
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
-//remove woocommerce styles
-// add_filter('woocommerce_enqueue_styles', '__return_empty_array');
-
-// add options page
-if (function_exists('acf_add_options_page')) {
-	acf_add_options_page(array(
-        'page_title' => 'Ogólne',
-        'menu_title' => 'Ogólne',
-        'redirect' => false
-    ));
-}
-
 // add the custom thumbnails size
 add_action('after_setup_theme', 'wpdocs_theme_setup');
 function wpdocs_theme_setup(){
