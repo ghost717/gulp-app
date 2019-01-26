@@ -1,14 +1,5 @@
 <?php
 
-# GUTENBERG
-// if ( version_compare($GLOBALS['wp_version'], '5.0-beta', '>') ) {
-//     // WP > 5 beta
-//     add_filter( 'use_block_editor_for_post_type', '__return_false', 100 );
-// } else {
-//     // WP < 5 beta
-//     add_filter( 'gutenberg_can_edit_post_type', '__return_false' );
-// }
-
 function my_disable_gutenberg_for_post_type( $is_enabled, $post_type ) {
     if ( 'page' == $post_type ) {  // disable for pages, change 'page' to you CPT slug
         return false;
@@ -127,7 +118,6 @@ function my_acf_init() {
 add_action('acf/init', 'my_acf_init');
 
 function nr_load_scripts() {
-	//https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false
 	wp_register_script('googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDUNBtyAPVbinBn_P2OdztPEuESrMsmnZY',null,null,true);  
 	wp_enqueue_script('googlemaps');
 		
