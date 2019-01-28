@@ -64,10 +64,18 @@ function add_marker( $marker, map ) {
   var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
 
   // create marker
+  // console.log('window.location.host ' + window.location.host);
+
+  if(window.location.host == 'localhost'){
+    var iconUrl = 'http://localhost/dev/adental/wp-content/themes/wp-314/dist/img/marker.png';
+  } else {
+    var iconUrl = 'http://' + window.location.host + '/wp-content/themes/wp-314/dist/img/marker.png';
+  }
+
   var marker = new google.maps.Marker({
      position  : latlng,
      map       : map,
-     icon      : '../polblinds/wp-content/themes/polblinds/dist/assets/images/marker.png',
+     icon      : iconUrl,
   });
 
   // add to array
