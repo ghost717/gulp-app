@@ -29,8 +29,8 @@
       <div class="wrap">
 
         <a class="header__branding" href="<?php echo get_home_url(); ?>">
-          <!-- <img src="<?php asset('images/logo.svg') ?>" alt=""> -->
-        </a>
+          <img class="header__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+        </a><!--header__logo-->
 
         <nav class="header__nav" role="navigation">
           <?php wp_nav_menu(array('pl_PL' => 'primary')); ?>
