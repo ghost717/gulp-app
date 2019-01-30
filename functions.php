@@ -1,5 +1,7 @@
 <?php
 
+add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
+
 function my_disable_gutenberg_for_post_type( $is_enabled, $post_type ) {
     if ( 'page' == $post_type ) {  // disable for pages, change 'page' to you CPT slug
         return false;
