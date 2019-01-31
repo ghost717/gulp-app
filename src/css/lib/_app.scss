@@ -1,3 +1,60 @@
+.owl-carousel{
+	.owl-nav{
+		button{
+			width: 30px;
+			height: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff !important;
+			font-weight: 800 !important;
+			background-color: $primary !important;
+		
+			&:hover{
+				background-color: $primary !important;
+				color: #fff !important;
+			}
+		}
+		.owl-prev{
+			position: absolute;
+			top: 50%;
+			left: 20px;
+		}
+		.owl-next{
+			position: absolute;
+			top: 50%;
+			right: 20px;
+		}
+	}
+	.owl-dots{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		padding: 5px 0;
+	
+		.owl-dot{
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			border-radius: 50%;
+			margin: 3px;
+		}	
+	}
+	@media(min-width: 1200px){
+		.owl-nav{
+			.owl-prev{
+				left: -40px;
+			}
+			.owl-next{
+				right: -40px;
+			}
+		}	
+	}
+}
+
 .wpcf7{
 	form{
 		margin: 0 -15px;
