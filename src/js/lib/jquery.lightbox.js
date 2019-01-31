@@ -1,9 +1,7 @@
 $(document).ready(function() {
     (function($) {
-
         $.fn.lightbox = function( options ) {
 
-            //metoda prywatna
             var exit;
             var prev, next;
             var thumbnail;
@@ -20,15 +18,13 @@ $(document).ready(function() {
                 return false;
             }
 
-            //metody publiczne
             var methods = {
                 start: function(){
                     $("#ajax").addClass('lightbox');
                     $('body').css('overflow', 'hidden');
                 },
                 createLightbox: function(param){
-                    //alert();
-                    $this = param;
+                    var $this = param;
 
                     $("#ajax").empty();
 
@@ -67,7 +63,6 @@ $(document).ready(function() {
                     }
 
                     var newImg = $( ".jwba_gallery" ).find('a[data-id=' + newId + ']');
-                //    console.log(newImg);
 
                     $("#ajax .thumb .pic").empty();
                     newImg.clone().appendTo("#ajax .thumb .pic");
@@ -112,7 +107,7 @@ $(document).ready(function() {
                 },
                 destroy: function() {
                     //destruktor
-                    $this = $(this);
+                    var $this = $(this);
                     $this.unbind("click");
                     $this.css("background-color","");
                     $this.removeData("lightbox");
@@ -136,7 +131,7 @@ $(document).ready(function() {
 
                     
                     $( ".jwba_gallery img" ).on('load', function(event) {
-                        $this = $(this); 
+                        var $this = $(this); 
 
                         $('.jwba_gallery .grid__item a').each(function( i, el ) {
                             $( el ).attr('data-id', i);
@@ -149,7 +144,7 @@ $(document).ready(function() {
                         event.preventDefault();
                         methods.start();
 
-                        $this = $(this);
+                        var $this = $(this);
 
                         $('.jwba_gallery .grid__item a').each(function( i, el ) {
                             $( el ).attr('data-id', i);
@@ -183,15 +178,12 @@ $(document).ready(function() {
                         return false;
                     });
                     
-
                     return;
                 }
                 else{
                     //bład
                     $.error('lightbox: no method: '+ options);
                 }
-
-
             });
         }
 
