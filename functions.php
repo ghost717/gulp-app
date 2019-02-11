@@ -283,35 +283,79 @@ function kriesi_pagination($pages = '', $range = 2)
 function post_type_zabiegi()
 {
     $labels = array(
-    'name' => _x('Zabiegi', 'Zabiegi', 'webs'),
-    'singular_name' => _x('Zabieg', 'Zabieg', 'webs'),
-  );
+        'name' => _x('Zabiegi', 'Zabiegi', 'webs'),
+        'singular_name' => _x('Zabieg', 'Zabieg', 'webs'),
+    );
+
     $args = array(
-    'label' => __('Zabieg', 'webs'),
-    'labels' => $labels,
-    'supports' => array('title', 'editor', 'thumbnail'),
-    'hierarchical' => false,
-    'public' => true,
-    'show_ui' => true,
-    'show_in_menu' => true,
-    'menu_position' => 1,
-    'show_in_admin_bar' => true,
-    'show_in_nav_menus' => true,
-    'can_export' => true,
-    'has_archive' => true,
-    'exclude_from_search' => false,
-    'publicly_queryable' => true,
-    'capability_type' => 'page',
-    // 'taxonomies' => array('category'),
-  );
+        'label' => __('Zabieg', 'webs'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 4,
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'page',
+        // 'taxonomies' => array('category'),
+    );
     
   register_post_type('zabieg', $args);
 }
+
 add_action('init', 'post_type_zabiegi', 0);
 
 register_taxonomy(
     "zabiegi",
     array("zabieg"),
+    array(
+        "hierarchical" => true,
+        "label" => "Kategorie",
+        "singular_label" => "Kategoria",
+        "rewrite" => true
+        )
+);
+
+function post_type_team()
+{
+    $labels = array(
+        'name' => _x('Personel', 'Personel', 'webs'),
+        'singular_name' => _x('Personel', 'Personel', 'webs'),
+    );
+
+    $args = array(
+        'label' => __('Personel', 'webs'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'page',
+        // 'taxonomies' => array('category'),
+    );
+    
+  register_post_type('personel', $args);
+}
+
+add_action('init', 'post_type_team', 0);
+
+register_taxonomy(
+    "team",
+    array("personel"),
     array(
         "hierarchical" => true,
         "label" => "Kategorie",
