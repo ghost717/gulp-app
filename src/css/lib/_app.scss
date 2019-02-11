@@ -60,11 +60,24 @@
 		margin: 0 -15px;
 		overflow: hidden;
 	}
-	input:not([type='submit']), textarea{
+	input:not([type='submit']), textarea, select{
+		background: transparent;
+		display: block;
 		width: 100%;
 		padding: 10px 10px;
 		padding-left: 40px;
 		border: 1px solid #c8c8c8;
+		border-radius: 0;
+	}
+	select{
+		-webkit-appearance: button;
+		-moz-appearance: button;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-webkit-padding-end: 20px;
+		-moz-padding-end: 20px;
+		-webkit-padding-start: 40px;
+		-moz-padding-start: 40px;
 	}
 	textarea{
 		height: 135px;
