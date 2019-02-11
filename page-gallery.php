@@ -18,9 +18,9 @@ get_header(); ?>
 
                                 <div class="grid__item">
                                     <div class="grid__item__thumb">
-                                        <?php $image = get_sub_field('zdjecie'); $thumb = $image['sizes']['thumbOf']; ?>
+                                        <?php $image = get_sub_field('zdjecie'); $thumb = $image['sizes']['thumb600']; $thumbHD = $image['sizes']['fullhd']; ?>
                                         <img src="<?php echo $thumb; ?>" alt="<?php echo $image['alt']; ?>">
-                                        <a href="<?php echo $image['url']; ?>" class="bg" style="background-image: url(<?php echo $thumb; ?>);">
+                                        <a href="<?php echo $thumbHD; ?>" class="bg" style="background-image: url(<?php echo $thumb; ?>);">
                                             <img src="<?php echo $thumb; ?>" alt="<?php echo $image['alt']; ?>">
                                         </a>
                                     </div>
