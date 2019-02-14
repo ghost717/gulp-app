@@ -50,6 +50,12 @@ jQuery(document).ready(function ($) {
 		$(this).parent().addClass('active');	
 	});
 
+	var sStr = '; ' + document.cookie + ';';
+	var nIndex = sStr.indexOf('; ' + escape(sName) + '=');
+	if (nIndex === -1) {
+		$("#cookies").show();
+	}
+	
 	// rellax example
 	// var rellax = new Rellax('.rellax', {
 	//   center: true,

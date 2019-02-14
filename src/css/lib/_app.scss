@@ -360,6 +360,34 @@
 	}
 }
 
+#cookies{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.9);
+	color: #fff;
+	width: 100vw;
+	z-index: 99;
+	padding: 10px;
+	font-weight: 300;
+
+	a{
+		color: #fff;
+	}
+	#exit{
+		display: inline-block;
+		margin: auto;
+		width: 200px;
+		text-align: center;
+		color: #fff;
+		background: #ffc208;
+		padding: 7px 20px;
+		text-align: center;
+		transition: 0.3s all ease-in-out;
+		border-left: 5px solid transparent;
+		cursor: pointer;
+	}
+}
 
 /* =WordPress Core
 -------------------------------------------------------------- */

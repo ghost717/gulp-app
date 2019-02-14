@@ -70,6 +70,15 @@
       </section>
       
     <?php endif; ?>
+            
+    <?php if(get_field('cookies', 'option')): ?>
+    <div style="display:none" id="cookies">
+      <div class="wrap">
+        <?php the_field('cookies', 'option'); ?>
+        <div id="exit">OK</div>
+      </div>
+    </div>
+    <?php endif; ?>
 
     <?php echo (get_field('footer_text', 'option')) ? get_field('footer_text', 'option') : ''; ?>
     <?php wp_footer(); ?>
