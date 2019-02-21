@@ -71,14 +71,16 @@
       
     <?php endif; ?>
             
-    <?php if(get_field('cookies', 'option')): ?>
-    <div style="display:none" id="cookies">
-      <div class="wrap">
-        <?php the_field('cookies', 'option'); ?>
-        <div id="exit">OK</div>
+    <?php //if(get_field('cookies', 'option')): ?>
+      <div style="display:none" id="cookies">
+        <div class="wrap">
+      
+            <?php echo (get_field('cookies', 'option')) ? get_field('cookies', 'option') : "This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish."; ?>
+            <div id="exit">OK</div>
+            
+        </div>
       </div>
-    </div>
-    <?php endif; ?>
+    <?php //endif; ?>
 
     <?php echo (get_field('footer_text', 'option')) ? get_field('footer_text', 'option') : ''; ?>
     <?php wp_footer(); ?>

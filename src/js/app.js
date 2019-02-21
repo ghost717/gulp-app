@@ -50,6 +50,14 @@ jQuery(document).ready(function ($) {
 		$(this).parent().addClass('active');	
 	});
 
+	var sName = "314";
+	$("#cookies #exit").click(function () {
+		var oExpire = new Date();
+		oExpire.setTime((new Date()).getTime() + 3600000 * 24 * 365);
+		document.cookie = sName + "=1;expires=" + oExpire;
+		$("#cookies").fadeOut();
+	});
+
 	var sStr = '; ' + document.cookie + ';';
 	var nIndex = sStr.indexOf('; ' + escape(sName) + '=');
 	if (nIndex === -1) {
