@@ -55,20 +55,15 @@
         </div>
     </footer>
 
-    <?php if(isset($tab)): ?>
-
-      <section class="modal__form lightbox" <?php if(isset($tab)): echo 'style="display: block"'; endif; ?>>
-        <div class="wrap content">
-          <?php
-            $tab = $_GET['form'];
-            
-            if(isset($tab)){
-              the_field('umow_wizyte', 'option'); 
-            }
-          ?>
+    <?php $tab = $_GET['form']; if($_GET['form'] == 'reservation'): ?>
+      <section class="modal__form flex-center <?php if(isset($tab)): echo 'lightbox active'; endif; ?>">
+        <div class="wrap content --relative">
+          <a href="#" id="exit">X</a>
+          <div class="main__title"><h3>Umów wizytę</h3></div>
+          <img src="<?php asset('img/separator.png'); ?>" class="modal__form__sep" alt="">
+          <?php echo (get_field('umow_wizyte', 'option')) ? get_field('umow_wizyte', 'option') : get_field('formularz', 'option'); ?>
         </div>
       </section>
-      
     <?php endif; ?>
             
     <?php //if(get_field('cookies', 'option')): ?>

@@ -50,6 +50,13 @@ jQuery(document).ready(function ($) {
 		$(this).parent().addClass('active');	
 	});
 
+	$(".modal__form #exit").click(function(event) {
+		event.preventDefault();
+
+		$(".modal__form").removeClass('lightbox');
+		$(".modal__form").removeClass('active');
+	});
+
 	var sName = "314";
 	$("#cookies #exit").click(function () {
 		var oExpire = new Date();
