@@ -25,6 +25,8 @@ jQuery(document).ready(function ($) {
 	
 	// MENUTOGGLE
 	$(".menu__toggle").click(function(event) {
+		event.preventDefault();
+		
 		$(this).toggleClass('toggled');
 		$(".header").toggleClass('active');
 	});
