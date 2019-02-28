@@ -55,7 +55,8 @@ $cols: 4;
 			.thumb{
 				.bg{
 					opacity: 0.7;
-					transform: scale(1.1);
+					-webkit-transform: scale(1.1);
+					        transform: scale(1.1);
 				}
 			}
 		}

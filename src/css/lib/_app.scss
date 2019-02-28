@@ -3,9 +3,15 @@
 		button{
 			width: 30px;
 			height: 30px;
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
-			align-items: center;
-			justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
 			color: #fff !important;
 			font-weight: 800 !important;
 			background-color: $primary !important;
@@ -120,9 +126,15 @@
 			left: 0;
 			width: 30px;
 			height: 100%;
+			display: -webkit-box;
+			display: -ms-flexbox;
 			display: flex;
-			align-items: center;
-			justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
 			z-index: 2;
 			border-right: 1px solid #c8c8c8;
 			padding: 10px 0;
@@ -133,7 +145,9 @@
 		div:nth-child(7){
 			.input-group-addon{
 				height: calc(100% - 7px);
-				align-items: flex-start;
+				-webkit-box-align: start;
+				    -ms-flex-align: start;
+				        align-items: flex-start;
 			}
 		}
 	}
@@ -336,7 +350,8 @@
 	}
 	&:hover{
 		img{
-			transform: scale(1.2);
+			-webkit-transform: scale(1.2);
+			        transform: scale(1.2);
 		}
 	}
 }
@@ -389,9 +404,15 @@
 		background: #000;
 		width: 40px !important;
 		height: 40px !important;
+		display: -webkit-box !important;
+		display: -ms-flexbox !important;
 		display: flex !important;
-		align-items: center !important;
-		justify-content: center !important;
+		-webkit-box-align: center !important;
+		    -ms-flex-align: center !important;
+		        align-items: center !important;
+		-webkit-box-pack: center !important;
+		    -ms-flex-pack: center !important;
+		        justify-content: center !important;
 		position: absolute !important;
 		top: -20px !important;
 		left: 0 !important;
@@ -404,6 +425,8 @@
 	}
 }
 .modal__form.active{
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	height: 100vh;
 }
@@ -431,6 +454,7 @@
 		background: #ffc208;
 		padding: 7px 20px;
 		text-align: center;
+		-webkit-transition: 0.3s all ease-in-out;
 		transition: 0.3s all ease-in-out;
 		border-left: 5px solid transparent;
 		cursor: pointer;
@@ -522,7 +546,8 @@ a img.aligncenter {
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
+	-webkit-clip-path: inset(50%);
+	        clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -535,7 +560,8 @@ a img.aligncenter {
 .screen-reader-text:focus {
 	background-color: #eee;
 	clip: auto !important;
-	clip-path: none;
+	-webkit-clip-path: none;
+	        clip-path: none;
 	color: #444;
 	display: block;
 	font-size: 1em;

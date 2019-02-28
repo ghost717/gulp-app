@@ -16,6 +16,7 @@ $transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 *{
+	-webkit-transition: $transition;
 	transition: $transition;
 }
 
