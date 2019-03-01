@@ -28,6 +28,7 @@ jQuery(document).ready(function ($) {
 		event.preventDefault();
 		
 		$(this).toggleClass('toggled');
+		$(this).closest('li').find('.sub-menu').eq(0).toggleClass('active');
 		$(".header").toggleClass('active');
 	});
 
