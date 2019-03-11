@@ -343,19 +343,6 @@
     }
 }
 
-#callnowbutton{
-	img{
-		width: 35px;
-		margin-right: 10px;
-	}
-	&:hover{
-		img{
-			-webkit-transform: scale(1.2);
-			        transform: scale(1.2);
-		}
-	}
-}
-
 .tel{
 	position: relative;
 
@@ -431,6 +418,21 @@
 	height: 100vh;
 }
 
+#callnowbutton{
+	z-index: 3!important;
+
+	img{
+		width: 35px;
+		margin-right: 10px;
+	}
+	&:hover{
+		img{
+			-webkit-transform: scale(1.2);
+			        transform: scale(1.2);
+		}
+	}
+}
+
 #cookies{
 	position: fixed;
 	bottom: 0;
@@ -447,7 +449,7 @@
 	}
 	#exit{
 		display: inline-block;
-		margin: auto;
+		margin: 0 10px;
 		width: 200px;
 		text-align: center;
 		color: #fff;
@@ -461,6 +463,13 @@
 	}
 	@media(min-width: 1200px){
 		padding: 10px 0;
+	}
+	@media(max-width: 767px){
+		text-align: center;
+
+		#exit{
+			margin: 10px auto;
+		}
 	}
 }
 
