@@ -58,6 +58,8 @@ jQuery(document).ready(function ($) {
 
 		$(".modal__form").removeClass('lightbox');
 		$(".modal__form").removeClass('active');
+
+		window.history.back();
 	});
 
 	var sName = "314";
