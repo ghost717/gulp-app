@@ -1,14 +1,17 @@
 .menu__toggle {
+	position: relative;
+	z-index: 99;
 	display: none;
 	outline: 0;
 	border: 0;
+	padding: 0;
 }
 
 @media screen and (max-width: 991px) {
 	.menu__toggle {
 		display: block;
 		width: 30px;
-		height: 20px;
+		height: 25px;
 		position: relative;
 		cursor: pointer;
 		background: transparent;
