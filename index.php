@@ -33,13 +33,13 @@
         </a><!--header__logo-->
 
         <nav class="header__nav" role="navigation">
-          <?php wp_nav_menu(array('pl_PL' => 'primary')); ?>
-
           <button class="header__nav__button menu__toggle">
-            <span class="menu__line"></span>
-            <span class="menu__line"></span>
-            <span class="menu__line"></span>
+              <span class="menu__line"></span>
+              <span class="menu__line"></span>
+              <span class="menu__line"></span>
           </button>
+          
+          <?php wp_nav_menu(array('theme_location' => 'primary-menu')); //wp_nav_menu(array('pl_PL' => 'primary')); ?>
         </nav>
 
       </div>
