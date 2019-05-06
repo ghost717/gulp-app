@@ -37,7 +37,7 @@ $(document).ready(function() {
                     var href = $('#ajax .thumb .pic a').attr('href');
                     $('#ajax .pic img').attr('src', href);
 
-                    thumb = $("#ajax .thumb .pic a");
+                    var thumb = $("#ajax .thumb .pic a");
                     thumb.click(onClick);
 
                     exit = $('#ajax #exit');
@@ -45,20 +45,17 @@ $(document).ready(function() {
                 addArrows: function(){
                     $("#ajax .thumb").append('<a href="#" class="glyphicon arrow-left"><</a><a href="#" class="glyphicon glyphicon- arrow-right">></a>');
 
-                    prev = $('.arrow-left');
-                    next = $('.arrow-right');
+                    var prev = $('.arrow-left');
+                    var next = $('.arrow-right');
                 },
                 leftCLick: function(){
                     var dataId = $('#ajax .thumb .pic a').attr('data-id');
-
                     var list = document.querySelectorAll(".jwba_gallery .grid__item a:not(.more)");
-
-                    dataId = parseInt(dataId);
+                    var dataId = parseInt(dataId);
 
                     if(dataId > 0){
                         var newId = dataId - 1;
                     } else {
-                        //var newId = dataId;
                         var newId = list.length - 1;
                     }
 
@@ -73,7 +70,7 @@ $(document).ready(function() {
                     
                     console.log(href);
 
-                    thumb = $("#ajax .thumb .pic a");
+                    var thumb = $("#ajax .thumb .pic a");
                     thumb.click(onClick);
 
                     return false;
@@ -81,17 +78,15 @@ $(document).ready(function() {
                 rightClick: function(){
                     var dataId = $('#ajax .thumb .pic a').attr('data-id');
                     var list = document.querySelectorAll(".jwba_gallery .grid__item a:not(.more)");
-                    dataId = parseInt(dataId);
+                    var dataId = parseInt(dataId);
 
                     if(dataId < list.length-1){
                         var newId = dataId + 1;
                     } else {
-                        //var newId = dataId;
                         var newId = 0;
                     }
 
                     var newImg = $( ".jwba_gallery" ).find('a[data-id=' + newId + ']');
-                //    console.log(newImg);
 
                     $("#ajax .thumb .pic").empty();
                     newImg.clone().appendTo("#ajax .thumb .pic");
@@ -99,7 +94,6 @@ $(document).ready(function() {
                 //podmiana miniaturki (a) na orginalne    
                     var href = $('#ajax .thumb .pic a').attr('href');
                     $('#ajax .pic img').attr('src', href);
-                    console.log(href);
                     thumb = $("#ajax .thumb .pic a");
                     thumb.click(onClick);
 
@@ -127,19 +121,14 @@ $(document).ready(function() {
                     colorSecond: 'Green'
                     }, options);
                     
-                   
-
-                    
                     $( ".jwba_gallery img" ).on('load', function(event) {
                         var $this = $(this); 
 
                         $('.jwba_gallery .grid__item a').each(function( i, el ) {
                             $( el ).attr('data-id', i);
-                       //     console.log(i);
                         });
                     });
 
-                    //$('.jwba_gallery a').click(function(event){
                     $('.jwba_gallery').on("click","a:not(.more)", function(event){
                         event.preventDefault();
                         methods.start();
