@@ -13,7 +13,6 @@
 *  @return  n/a
 */
 
-
 function new_map( $el ) {
   
   // var

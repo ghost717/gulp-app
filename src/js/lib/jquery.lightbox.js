@@ -170,7 +170,6 @@ $(document).ready(function() {
                     return;
                 }
                 else{
-                    //bład
                     $.error('lightbox: no method: '+ options);
                 }
             });
