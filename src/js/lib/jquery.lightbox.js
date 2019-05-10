@@ -37,7 +37,7 @@ $(document).ready(function() {
                     var href = $('#ajax .thumb .pic a').attr('href');
                     $('#ajax .pic img').attr('src', href);
 
-                    var thumb = $("#ajax .thumb .pic a");
+                    thumb = $("#ajax .thumb .pic a");
                     thumb.click(onClick);
 
                     exit = $('#ajax #exit');
@@ -45,8 +45,8 @@ $(document).ready(function() {
                 addArrows: function(){
                     $("#ajax .thumb").append('<a href="#" class="glyphicon arrow-left"><</a><a href="#" class="glyphicon glyphicon- arrow-right">></a>');
 
-                    var prev = $('.arrow-left');
-                    var next = $('.arrow-right');
+                    prev = $('.arrow-left');
+                    next = $('.arrow-right');
                 },
                 leftCLick: function(){
                     var dataId = $('#ajax .thumb .pic a').attr('data-id');
@@ -68,9 +68,7 @@ $(document).ready(function() {
                     var href = $('#ajax .thumb .pic a').attr('href');
                     $('#ajax .pic img').attr('src', href);
                     
-                    console.log(href);
-
-                    var thumb = $("#ajax .thumb .pic a");
+                    thumb = $("#ajax .thumb .pic a");
                     thumb.click(onClick);
 
                     return false;
@@ -94,6 +92,7 @@ $(document).ready(function() {
                 //podmiana miniaturki (a) na orginalne    
                     var href = $('#ajax .thumb .pic a').attr('href');
                     $('#ajax .pic img').attr('src', href);
+
                     thumb = $("#ajax .thumb .pic a");
                     thumb.click(onClick);
 
@@ -170,6 +169,7 @@ $(document).ready(function() {
                     return;
                 }
                 else{
+                    //bład
                     $.error('lightbox: no method: '+ options);
                 }
             });
