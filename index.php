@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+    <?php echo (get_field('header_text', 'option')) ? get_field('header_text', 'option') : ''; ?>
+
     <!-- encoding -->
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +20,6 @@
     <?php endif; ?>
 
     <?php wp_head(); ?>
-    <?php echo (get_field('header_text', 'option')) ? get_field('header_text', 'option') : ''; ?>
 </head>
 <body <?php body_class(); ?>>
     <?php echo (get_field('body_text', 'option')) ? get_field('body_text', 'option') : ''; ?>
