@@ -1,5 +1,10 @@
 jQuery(document).ready(function ($) {
 
+	//mac datepicker
+	if ( $('[type="date"]').prop('type') != 'date' ) {
+		$('[type="date"]').datepicker();
+	}
+	
 	var main__slider = $('.main__slider .owl-carousel');
 	main__slider.owlCarousel({
 			loop:true,
