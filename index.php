@@ -24,7 +24,9 @@
 <body <?php body_class(); ?>>
     <?php echo (get_field('body_text', 'option')) ? get_field('body_text', 'option') : ''; ?>
 
-    <?php get_template_part('no-script'); ?>
+    <div id="loader" class="flex-center">
+      <img src="<?php asset('img/logo.png'); ?>" alt="<?php bloginfo('title'); ?>">
+    </div>
 
     <header class="header">
       <div class="wrap">
@@ -77,8 +79,11 @@
         </div>
       </div>
     <?php //endif; ?>
-
+    
     <?php echo (get_field('footer_text', 'option')) ? get_field('footer_text', 'option') : ''; ?>
+    
+    <?php get_template_part('no-script'); ?>
+
     <?php wp_footer(); ?>
   </body>
 </html>
