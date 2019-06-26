@@ -56,6 +56,10 @@
         <div class="wrap content">
 
         </div>
+        
+        <div class="footer__copy">
+          Projekt i wykonanie <a href="http://stomatologia.314.pl/">Stomatologia 314.pl</a>
+        </div>
     </footer>
 
     <?php $tab = $_GET['form']; if($_GET['form'] == 'reservation'): ?>
