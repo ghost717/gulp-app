@@ -73,7 +73,7 @@
       <div style="display:none" id="cookies">
         <div class="wrap">
       
-            <?php echo (get_field('cookies', 'option')) ? get_field('cookies', 'option') : "This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish."; ?>
+            <?php echo (get_field('cookies', 'option')) ? get_field('cookies', 'option') : "Serwis wykorzystuje pliki cookies. Korzystając ze strony wyrażasz zgodę na wykorzystywanie plików cookies."; ?>
             <div id="exit">OK</div>
             
         </div>
