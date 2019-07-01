@@ -58,7 +58,7 @@
         </div>
         
         <div class="footer__copy">
-          Projekt i wykonanie <a href="http://stomatologia.314.pl/">Stomatologia 314.pl</a>
+          Projekt i wykonanie <a href="http://stomatologia.314.pl/" target="_blank">Stomatologia 314.pl</a>
         </div>
     </footer>
 
