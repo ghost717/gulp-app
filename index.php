@@ -36,7 +36,7 @@
         </a><!--header__logo-->
 
         <nav class="header__nav" role="navigation">
-          <button class="header__nav__button menu__toggle">
+          <button class="header__nav__button menu__toggle" aria-label="button_nav">
               <span class="menu__line"></span>
               <span class="menu__line"></span>
               <span class="menu__line"></span>
@@ -58,14 +58,14 @@
         </div>
         
         <div class="footer__copy">
-          Projekt i wykonanie <a href="http://stomatologia.314.pl/" target="_blank">Stomatologia 314.pl</a>
+          Projekt i wykonanie <a href="http://stomatologia.314.pl/" target="_blank" aria-label="Stomatologia 314.pl">Stomatologia 314.pl</a>
         </div>
     </footer>
 
     <?php $tab = $_GET['form']; if($_GET['form'] == 'reservation'): ?>
       <section class="modal__form flex-center <?php if(isset($tab)): echo 'lightbox active'; endif; ?>">
         <div class="wrap content --relative">
-          <a href="#" id="exit">X</a>
+          <a href="#" id="exit" aria-label="exit">X</a>
           <div class="main__title"><h3>Umów wizytę</h3></div>
           <img src="<?php asset('img/separator.png'); ?>" class="modal__form__sep" alt="">
           <?php echo (get_field('umow_wizyte', 'option')) ? get_field('umow_wizyte', 'option') : get_field('formularz', 'option'); ?>
