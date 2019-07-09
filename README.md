@@ -14,6 +14,7 @@ A Wordpress startup theme based on gulp and sass. Compatible with ACF plug.
 
 3. optymalizacja szablonu
 
+
 ## Info 
 
 **SRC** directory contains all the assets - gulp with watch this directory and listen for changes.
