@@ -64,11 +64,12 @@ function add_marker( $marker, map ) {
 
   // create marker
   // console.log('window.location.host ' + window.location.host);
+  // console.log('location.protocol ' + location.protocol);
 
   if(window.location.host == 'localhost'){
-    var iconUrl = 'http://localhost/dev/adental/wp-content/themes/wp-314/dist/img/marker.png';
+    var iconUrl = location.protocol + '//localhost/dev/adental/wp-content/themes/wp-314/dist/img/marker.png';
   } else {
-    var iconUrl = 'http://' + window.location.host + '/wp-content/themes/wp-314/dist/img/marker.png';
+    var iconUrl = location.protocol + '//' + window.location.host + '/wp-content/themes/wp-314/dist/img/marker.png';
   }
 
   var marker = new google.maps.Marker({
@@ -102,7 +103,6 @@ function add_marker( $marker, map ) {
 *  center_map
 *  This function will center the map, showing all markers attached to this map
 */
-
 function center_map( map ) {
 
   // vars
