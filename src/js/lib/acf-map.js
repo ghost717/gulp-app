@@ -67,7 +67,7 @@ function add_marker( $marker, map ) {
   // console.log('location.protocol ' + location.protocol);
 
   if(window.location.host == 'localhost'){
-    var iconUrl = location.protocol + '//localhost/dev/adental/wp-content/themes/wp-314/dist/img/marker.png';
+    var iconUrl = location.protocol + '//' + window.location.host + '/dev/adental/wp-content/themes/wp-314/dist/img/marker.png';
   } else {
     var iconUrl = location.protocol + '//' + window.location.host + '/wp-content/themes/wp-314/dist/img/marker.png';
   }
