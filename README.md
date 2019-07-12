@@ -10,6 +10,7 @@ A Wordpress startup theme based on gulp and sass. Compatible with ACF plug.
 2. aktualizacja szablonu
 - utworzenie szkieletow podstron
 - aktualizacja menu
+- strona 404
 
 3. optymalizacja szablonu
 

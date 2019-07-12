@@ -32,7 +32,7 @@
       <div class="wrap">
 
         <a class="header__branding" href="<?php echo get_home_url(); ?>">
-          <img class="header__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+          <img class="header__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php bloginfo('title'); ?>">
         </a><!--header__logo-->
 
         <nav class="header__nav" role="navigation">
@@ -67,7 +67,7 @@
         <div class="wrap content --relative">
           <a href="#" id="exit" aria-label="exit">X</a>
           <div class="main__title"><h3>Umów wizytę</h3></div>
-          <img src="<?php asset('img/separator.png'); ?>" class="modal__form__sep" alt="">
+          <img src="<?php asset('img/separator.png'); ?>" class="modal__form__sep" alt="<?php bloginfo('title'); ?>">
           <?php echo (get_field('umow_wizyte', 'option')) ? get_field('umow_wizyte', 'option') : get_field('formularz', 'option'); ?>
         </div>
       </section>
