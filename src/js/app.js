@@ -67,7 +67,7 @@ jQuery(document).ready(function ($) {
 		window.history.back();
 	});
 
-	var sName = "314";
+	var sName = "cookies";
 	$("#cookies #exit").click(function () {
 		var oExpire = new Date();
 		oExpire.setTime((new Date()).getTime() + 3600000 * 24 * 365);
