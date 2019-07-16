@@ -62,7 +62,7 @@
 </div>
 
 <script>
-  jQuery(document).ready(function ($) {
-    jQuery('#loader').hide();
+  $(window).on('load', function(){ 
+    $('#loader').hide();
   });
 </script>
