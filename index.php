@@ -45,6 +45,21 @@
           <?php wp_nav_menu(array('theme_location' => 'primary-menu')); //wp_nav_menu(array('pl_PL' => 'primary')); ?>
         </nav>
 
+        <div class="header__mobile">
+          <nav role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+                                  
+              <ul id="menu">
+                <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
       </div>
     </header>
 
