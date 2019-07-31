@@ -25,42 +25,62 @@
     <?php echo (get_field('body_text', 'option')) ? get_field('body_text', 'option') : ''; ?>
 
     <div id="loader" class="flex-center">
-      <img src="<?php asset('img/logo.png'); ?>" alt="<?php bloginfo('title'); ?>">
+        <img src="<?php asset('img/logo.png'); ?>" alt="<?php bloginfo('title'); ?>">
     </div>
 
     <header class="header">
-      <div class="wrap">
+        <div class="header__top">
+            <div class="wrap">
 
-        <a class="header__branding" href="<?php echo get_home_url(); ?>">
-          <img class="header__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php bloginfo('title'); ?>">
-        </a><!--header__logo-->
+              <div class="grid">
+                  <div class="grid__item">
+                      <?php the_field('adres', 'option'); ?>
+                  </div>
+                  <div class="grid__item">
+                      <?php the_field('godzina', 'option'); ?>
+                  </div>
+                  <div class="grid__item">
+                      <?php the_field('tel', 'option'); ?>
+                      <?php the_field('email', 'option'); ?>
+                  </div>
+                  <div class="grid__item">
+                      <a href="<?php echo '?form=reservation'; ?>" class="more --getForm">Umów się</a>
+                  </div>
+              </div>
 
-        <nav class="header__nav" role="navigation">
-          <button class="header__nav__button menu__toggle" aria-label="button_nav">
-              <span class="menu__line"></span>
-              <span class="menu__line"></span>
-              <span class="menu__line"></span>
-          </button>
-          
-          <?php wp_nav_menu(array('theme_location' => 'primary-menu')); //wp_nav_menu(array('pl_PL' => 'primary')); ?>
-        </nav>
-
-        <div class="header__mobile">
-          <nav role="navigation">
-            <div id="menuToggle">
-              <input type="checkbox" />
-              <span></span>
-              <span></span>
-              <span></span>
-                                  
-              <ul id="menu">
-                <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
-              </ul>
             </div>
-          </nav>
-        </div>
+        </div><!-- header__top -->
 
-      </div>
+        <div class="header__bar flex-center">
+            <div class="wrap">
+                <a class="header__branding" href="<?php echo get_home_url(); ?>" aria-label="logo">
+                    <img class="header__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php bloginfo('title'); ?>">
+                </a><!--header__logo-->
+
+                <nav class="header__nav" role="navigation">
+                    <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
+                </nav>
+
+                <div class="header__mobile">
+                    <nav role="navigation">
+                        <div id="menuToggle">
+                            <input type="checkbox" />
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            
+                            <ul id="menu">
+                                <a class="mobile__branding" href="<?php echo get_home_url(); ?>" aria-label="logo">
+                                    <img class="mobile__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php bloginfo('title'); ?>">
+                                </a>
+
+                                <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div><!-- header__bar -->
     </header>
 
     <main class="main">
