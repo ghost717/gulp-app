@@ -97,6 +97,8 @@
         </div>
     </footer>
 
+    <div id="ajax"></div>
+    
     <?php $tab = $_GET['form']; if($_GET['form'] == 'reservation'): ?>
       <section class="modal__form flex-center <?php if(isset($tab)): echo 'lightbox active'; endif; ?>">
         <div class="wrap content --relative">
@@ -107,7 +109,7 @@
         </div>
       </section>
     <?php endif; ?>
-            
+    
     <?php //if(get_field('cookies', 'option')): ?>
       <div style="display:none" id="cookies">
         <div class="wrap">
@@ -120,7 +122,6 @@
     <?php //endif; ?>
     
     <?php echo (get_field('footer_text', 'option')) ? get_field('footer_text', 'option') : ''; ?>
-    
     <?php get_template_part('no-script'); ?>
 
     <?php wp_footer(); ?>
