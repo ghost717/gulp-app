@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <div class="post__thumb flex-center">
-                                    <img src="<?php echo $thumb[0]; ?>" alt="<?php echo $image['alt']; ?>">
+                                    <img src="<?php echo $thumb[0]; ?>" alt="<?php if($image['alt'] != ''): echo $image['alt']; else: bloginfo('title'); endif; ?>">
                                 </div>
 
                                 <?php if(get_field('lekarze')): ?>
@@ -46,7 +46,7 @@
                                                 <div class=" flex-center --gray">
                                                     <div class="col-xs-12 col-sm-5">
                                                         <div class="thumb">
-                                                            <img src="<?php echo $thumb[0]; ?>" alt="<?php echo $image['alt']; ?>">
+                                                            <img src="<?php echo $thumb[0]; ?>" alt="<?php if($image['alt'] != ''): echo $image['alt']; else: bloginfo('title'); endif; ?>">
                                                             <div class="bg" style="background-image: url(<?php echo $thumb[0]; ?>)"></div>
                                                         </div>
                                                     </div>
@@ -77,7 +77,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <article class="post__thumb">
-                                    <img src="<?php echo $thumb[0]; ?>" alt="<?php echo $image['alt']; ?>">
+                                    <img src="<?php echo $thumb[0]; ?>" alt="<?php if($image['alt'] != ''): echo $image['alt']; else: bloginfo('title'); endif; ?>">
                                 </article>
                             </div>
                         </div>
