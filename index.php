@@ -8,15 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
+    <!-- For IE 9 and below. ICO should be 32x32 pixels in size -->
+    <!--[if IE]><link rel="shortcut icon" href="path/to/favicon.ico"><![endif]-->
+    <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. --> 
+    <link rel="apple-touch-icon-precomposed" href="<?php asset('img/fav.png'); ?>">
+    <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size. -->
+    <link rel="icon" href="<?php asset('img/fav.png'); ?>">
+
     <!-- info / SEO -->
     <title><?php echo (get_field('title', 'option')) ? get_field('title', 'option') : bloginfo('title').' '.wp_title(); ?></title>
 
     <!-- livereload -->
     <?php if (strpos(get_home_url(), 'localhost') == true) : ?>
-    <script>
-      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
-        ':35729/livereload.js?snipver=1"></' + 'script>')
-    </script>
+        <script>
+            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+        </script>
     <?php endif; ?>
 
     <?php wp_head(); ?>
