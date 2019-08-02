@@ -2,18 +2,6 @@
 
 A Wordpress startup theme based on gulp and sass. Compatible with ACF plug.
 
-## Todos
-1. aktualizacja db
-- pola opcji/widgety
-- utworzenie podstron i postow/zabiegow
-
-2. aktualizacja szablonu
-- utworzenie szkieletow podstron
-- aktualizacja menu
-- strona 404
-
-3. optymalizacja szablonu
-
 
 ## Info 
 
