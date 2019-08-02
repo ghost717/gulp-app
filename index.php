@@ -60,7 +60,7 @@
         <div class="header__bar flex-center">
             <div class="wrap">
                 <a class="header__branding" href="<?php echo get_home_url(); ?>" aria-label="logo">
-                    <img class="header__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php bloginfo('title'); ?>">
+                    <img class="header__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php if($image['alt'] != ''): echo $image['alt']; else: bloginfo('title'); endif; ?>">
                 </a><!--header__logo-->
 
                 <nav class="header__nav" role="navigation">
@@ -77,7 +77,7 @@
                             
                             <ul id="menu">
                                 <a class="mobile__branding" href="<?php echo get_home_url(); ?>" aria-label="logo">
-                                    <img class="mobile__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php bloginfo('title'); ?>">
+                                    <img class="mobile__logo" src="<?php $image = get_field('logo', 'option'); echo $thumb = $image['url']; ?>" alt="<?php if($image['alt'] != ''): echo $image['alt']; else: bloginfo('title'); endif; ?>">
                                 </a>
 
                                 <?php wp_nav_menu(array('theme_location' => 'primary-menu')); ?>
