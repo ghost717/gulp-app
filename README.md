@@ -59,10 +59,10 @@ npm install -g livereload
 | ------ | ------ |
 | ACF PRO | [Fields manager](https://www.advancedcustomfields.com/resources/)|
 | Contacf form 7 | [Form bulder](https://wordpress.org/support/plugin/contact-form-7)|
-| Duplicator PRO | [Backup and migration](https://snapcreek.com/support/)|
 
 
 ### SOURCE
 [BEM](https://www.nafrontendzie.pl/metodyki-css-2-bem)
+[DRY](https://medium.com/backticks-tildes/keeping-your-scss-dry-5211a99be15c)
 
 
