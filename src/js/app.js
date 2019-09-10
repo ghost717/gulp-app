@@ -29,18 +29,31 @@ jQuery(document).ready(function ($) {
 	});
 	
 	// MENUTOGGLE
-	$(".menu__toggle").click(function(event) {
+	$(".menu-item-has-children").click(function(event) {
 		event.preventDefault();
+		// $(this).toggleClass('active');
+	});
+	
+	$(".menu-item-has-children ul li a").click(function(event) {
+		window.location.href = $(this).attr('href');
+	});
+	
+	$("#menuToggle input, #menuToggle span").click(function(event) {
+		// event.preventDefault();
+		$('.header').toggleClass('active');
+	});
+	// $(".menu__toggle").click(function(event) {
+	// 	event.preventDefault();
 		
-		$(this).toggleClass('toggled');
-		$(this).closest('li').find('.sub-menu').eq(0).toggleClass('active');
-		$(".header").toggleClass('active');
-	});
+	// 	$(this).toggleClass('toggled');
+	// 	$(this).closest('li').find('.sub-menu').eq(0).toggleClass('active');
+	// 	$(".header").toggleClass('active');
+	// });
 
-	$(".menu-item").click(function(event) {
-		$(".menu__toggle").removeClass('toggled');
-		$(".header").removeClass('active');
-	});
+	// $(".menu-item").click(function(event) {
+	// 	$(".menu__toggle").removeClass('toggled');
+	// 	$(".header").removeClass('active');
+	// });
 	
 	$('.tel__hover').on( 'click', function(event){
 		event.preventDefault();
