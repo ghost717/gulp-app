@@ -27,4 +27,3 @@ function webs_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'webs_body_classes' );
-
