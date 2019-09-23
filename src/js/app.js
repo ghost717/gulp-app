@@ -5,19 +5,31 @@ jQuery(document).ready(function ($) {
 		$('[type="date"]').datepicker();
 	}
 	
-	var sName = "cookies";
-	$("#cookies #exit").click(function () {
-		var oExpire = new Date();
-		oExpire.setTime((new Date()).getTime() + 3600000 * 24 * 365);
-		document.cookie = sName + "=1;expires=" + oExpire;
+	// var sName = "cookies";
+	// $("#cookies #exit").click(function () {
+	// 	var oExpire = new Date();
+	// 	oExpire.setTime((new Date()).getTime() + 3600000 * 24 * 365);
+	// 	document.cookie = sName + "=1;expires=" + oExpire;
+	// 	$("#cookies").fadeOut();
+	// });
+
+	// var sStr = '; ' + document.cookie + ';';
+	// var nIndex = sStr.indexOf('; ' + escape(sName) + '=');
+	// if (nIndex === -1) {
+	// 	$("#cookies").show();
+	// }
+
+	var sName = "314cookies";
+	var visited = $.cookie(sName)
+
+    if (visited == null) {
+        $("#cookies").fadeIn();       
+    }
+	$("#cookies #exit").click(function (event) {
+		event.preventDefault();
+		$.cookie(sName, 'yes', { expires: 1, path: '/' });
 		$("#cookies").fadeOut();
 	});
-
-	var sStr = '; ' + document.cookie + ';';
-	var nIndex = sStr.indexOf('; ' + escape(sName) + '=');
-	if (nIndex === -1) {
-		$("#cookies").show();
-	}
 
 	// MENUTOGGLE
 	$(".menu-item-has-children").click(function(event) {
