@@ -124,6 +124,24 @@ function nr_load_scripts() {
 }
 // add_action( 'wp_enqueue_scripts', 'nr_load_scripts' );
 
+function pi_map_shortcode() {
+    $locations = get_field('lokalizacje', 'options');
+    
+    // begin output buffering
+    ob_start();
+    
+    foreach($locations as $location) {
+    ?>
+    <?php echo $location['map'] ?>
+    <?php
+    
+    break;
+    }
+    
+    return ob_get_clean();
+}
+add_shortcode( 'pimap', 'pi_map_shortcode' );
+
 
 function na_remove_slugg( $post_link, $post, $leavename ) {
     if ( 'offer' != $post->post_type || 'publish' != $post->post_status ) {
